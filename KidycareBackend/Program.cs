@@ -1,3 +1,8 @@
+using KidycareBackend.Pay.Application.Internal.CommandServices;
+using KidycareBackend.Pay.Application.Internal.QueryServices;
+using KidycareBackend.Pay.Domain.Repositories;
+using KidycareBackend.Pay.Domain.Services;
+using KidycareBackend.Pay.Infrastruture.Persistence.EFC.Repositories;
 using KidycareBackend.Shared.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -45,7 +50,15 @@ var builder = WebApplication.CreateBuilder(args);
   }); 
  
 // Configure Dependency Injection
- 
+
+ builder.Services.AddScoped<ICardQueryService, CardQueryService>();
+ builder.Services.AddScoped<ICardCommandService, CardCommandService>();
+
+// Register repositories for Card and Payment
+ builder.Services.AddScoped<ICardRepository, CardRepository>();
+ builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+
+
 // Shared Bounded Context Injection Configuration
   builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

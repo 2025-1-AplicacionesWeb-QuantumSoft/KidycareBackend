@@ -1,5 +1,7 @@
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
+using KidycareBackend.Pay.Domain.Model.Aggregates;
+using KidycareBackend.Pay.Domain.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
