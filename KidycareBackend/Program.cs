@@ -1,3 +1,8 @@
+using KidycareBackend.Reservations.Application.Internal.CommandServices;
+using KidycareBackend.Reservations.Application.Internal.QueryServices;
+using KidycareBackend.Reservations.Domain.Repositories;
+using KidycareBackend.Reservations.Domain.Services;
+using KidycareBackend.Reservations.Infrastructure.Repositories;
 using KidycareBackend.Shared.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -50,10 +55,9 @@ var builder = WebApplication.CreateBuilder(args);
   builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // News Bounded Context Injection Configuration
-
-
-
-
+ builder.Services.AddScoped<IReservationCommandService, ReservationCommandService>();
+ builder.Services.AddScoped<IReservationQueryService, ReservationQueryService>();
+ builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 
 
 var app = builder.Build();
