@@ -19,4 +19,12 @@
         <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="8.1.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Reviews\Application\Internal\QueryServices\" />
+      <Folder Include="Reviews\Domain\Model\" />
+      <Folder Include="Reviews\Domain\Repositories\" />
+      <Folder Include="Reviews\Infrastructure\Repositories\" />
+      <Folder Include="Reviews\Interfaces\Resources\Transform\" />
+    </ItemGroup>
+
 </Project>
