@@ -1,3 +1,3 @@
 ﻿namespace KidycareBackend.Pay.Domain.Model.Queries;
 
-public record GetAllCardByUserIdQuery(int UserId);
+public record GetCardByIdQuery(int Id);

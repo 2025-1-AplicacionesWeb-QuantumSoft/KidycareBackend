@@ -51,12 +51,15 @@ var builder = WebApplication.CreateBuilder(args);
  
 // Configure Dependency Injection
 
- builder.Services.AddScoped<ICardQueryService, CardQueryService>();
- builder.Services.AddScoped<ICardCommandService, CardCommandService>();
-
 // Register repositories for Card and Payment
  builder.Services.AddScoped<ICardRepository, CardRepository>();
+ builder.Services.AddScoped<ICardQueryService, CardQueryService>();
+ builder.Services.AddScoped<ICardCommandService, CardCommandService>();
+ 
  builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+ builder.Services.AddScoped<IPaymentCommandService, PaymentCommandService>();
+ builder.Services.AddScoped<IPaymentQueryService, PaymentQueryService>();
+ 
 
 
 // Shared Bounded Context Injection Configuration

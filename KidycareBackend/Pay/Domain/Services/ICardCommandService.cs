@@ -5,5 +5,8 @@ namespace KidycareBackend.Pay.Domain.Services;
 
 public interface ICardCommandService
 {
-    public Task<Card?> Handle(CreateCardCommand command);
+    Task<Card?> Handle(CreateCardCommand command);
+    Task<bool> Handle(DeleteCardByIdCommand byIdCommand);
+    Task<Card> Handle(UpdateCardByIdCommand byIdCommand);
+    
 }

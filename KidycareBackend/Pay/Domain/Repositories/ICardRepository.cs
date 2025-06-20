@@ -5,5 +5,8 @@ namespace KidycareBackend.Pay.Domain.Repositories;
 
 public interface ICardRepository:IBaseRepository<Card>
 {
-    Task<IEnumerable<Card>> FindByCardByUserIdAsync(int userId);
+    Task<Card?> GetCardById(int cardId);
+    Task<IEnumerable<Card>> GetCardByUserId(int cardId);
+    Task<Card?> UpdateCard(Card card);
+    Task DeleteCard(int cardId);
 }

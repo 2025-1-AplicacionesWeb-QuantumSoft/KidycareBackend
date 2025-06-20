@@ -6,7 +6,7 @@ namespace KidycareBackend.Pay.Interfaces.REST.Transform;
 
 public static class CreateCardCommandFromResourceAssembler
 {
-    public static CreateCardCommand ToCommandFromResource(CreateCardResource resource)
+    public static CreateCardCommand toCommandFromResource(CreateCardResource resource)
     {
         return new CreateCardCommand(resource.UserId, resource.CardNumber, resource.CardHolder, 
             resource.Cvv, resource.ExpirationDate);

@@ -7,13 +7,18 @@ namespace KidycareBackend.Pay.Application.Internal.QueryServices;
 
 public class CardQueryService(ICardRepository cardRepository) : ICardQueryService
 {
-    public async Task<IEnumerable<Card>> Handle(GetAllCardByUserIdQuery query)
-    {
-        return await cardRepository.FindByCardByUserIdAsync(query.User_Id);
-    }
-
     public async Task<IEnumerable<Card>> Handle(GetAllCardQuery query)
     {
         return await cardRepository.ListAsync();
+    }
+
+    public async Task<IEnumerable<Card>> Handle(GetAllCardByUserIdQuery query)
+    {
+        return await cardRepository.GetCardByUserId(query.UserId);
+    }
+
+    public async Task<Card?> Handle(GetCardByIdQuery query)
+    {
+        return await cardRepository.FindByIdAsync(query.Id);
     }
 }
