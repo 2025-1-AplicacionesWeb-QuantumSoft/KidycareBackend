@@ -7956,24 +7956,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joaqu\\.nuget\\packages\\": {}
+    "C:\\Users\\USUARIO\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
+      "projectUniqueName": "D:\\u\\aplicaciones web\\backend\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
       "projectName": "KidycareBackend",
-      "projectPath": "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
-      "packagesPath": "C:\\Users\\joaqu\\.nuget\\packages\\",
-      "outputPath": "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\KidycareBackend\\KidycareBackend\\obj\\",
+      "projectPath": "D:\\u\\aplicaciones web\\backend\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
+      "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+      "outputPath": "D:\\u\\aplicaciones web\\backend\\KidycareBackend\\KidycareBackend\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\joaqu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8058,7 +8066,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\joaqu\\.dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
