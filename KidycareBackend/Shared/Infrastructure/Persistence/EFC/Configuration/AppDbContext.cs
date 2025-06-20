@@ -1,5 +1,8 @@
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
+using KidycareBackend.Pay.Domain.Model.Aggregates;
+using KidycareBackend.Pay.Domain.Model.Entities;
+using KidycareBackend.Pay.Infrastruture.Persistence.EFC.Configuration.Extensions;
 using KidycareBackend.Reservations.Domain.Model.Aggregates;
 using KidycareBackend.Reservations.Domain.Model.ValueObjects;
 using Microsoft.EntityFrameworkCore;
@@ -64,6 +67,8 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
             entity.Property(r => r.Status).HasConversion(reservationStatusConverter).IsRequired();
             entity.Property(r => r.CreatedAt).IsRequired();
         });
+        
+        builder.ApplyCardConfiguration();
         
         builder.UseSnakeCaseNamingConvention();
         
