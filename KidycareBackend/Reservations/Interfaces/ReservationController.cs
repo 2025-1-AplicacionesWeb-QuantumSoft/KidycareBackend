@@ -12,7 +12,7 @@ namespace KidycareBackend.Reservations.Interfaces;
 [ApiController] // Indicates that this class is an API controller
 [Route("api/v1/[controller]")] // Defines the route for the controller
 [Produces(MediaTypeNames.Application.Json)] // Specifies that the API produces JSON responses
-[Tags("Favorite Sources")] // Adds a tag for grouping in Swagger documentation
+[Tags("Reservations")] // Adds a tag for grouping in Swagger documentation
 public class ReservationController(
     IReservationCommandService reservationCommandService, IReservationQueryService reservationQueryService)
     : ControllerBase
@@ -55,7 +55,7 @@ public class ReservationController(
         return Ok(resource);
     }
     
-    [HttpGet("{babysitterId}")]
+    [HttpGet("babysitter/{babysitterId}")]
     [SwaggerOperation(
         Summary = "Get all reservations by Babysitter ID",
         Description = "Retrieves a list of all reservations by Babysitter ID.",
@@ -73,7 +73,7 @@ public class ReservationController(
         return Ok(resources);
     }
     
-    [HttpGet("{parentId}")]
+    [HttpGet("parent/{parentId}")]
     [SwaggerOperation(
         Summary = "Get all reservations by Parent ID",
         Description = "Retrieves a list of all reservations by Parent ID.",

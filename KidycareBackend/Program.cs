@@ -59,6 +59,13 @@ var builder = WebApplication.CreateBuilder(args);
  builder.Services.AddScoped<IReservationQueryService, ReservationQueryService>();
  builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 
+ builder.Services.AddCors(options =>
+ {
+  options.AddPolicy("AllowFrontend",
+   policy => policy.WithOrigins("http://localhost:5173")
+    .AllowAnyHeader()
+    .AllowAnyMethod());
+ });
 
 var app = builder.Build();
 
@@ -75,6 +82,7 @@ using (var scope = app.Services.CreateScope())
 //{
 //  app.MapOpenApi();
 //}
+app.UseCors("AllowFrontend");
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
