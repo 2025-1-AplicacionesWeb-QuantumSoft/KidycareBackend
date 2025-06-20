@@ -2,7 +2,7 @@ using KidycareBackend.Reservations.Application.Internal.CommandServices;
 using KidycareBackend.Reservations.Application.Internal.QueryServices;
 using KidycareBackend.Reservations.Domain.Repositories;
 using KidycareBackend.Reservations.Domain.Services;
-using KidycareBackend.Reservations.Infrastructure.Repositories;
+using KidycareBackend.Reservations.Infrastructure.Persistence.EFC.Repositories;
 using KidycareBackend.Pay.Application.Internal.CommandServices;
 using KidycareBackend.Pay.Application.Internal.QueryServices;
 using KidycareBackend.Pay.Domain.Repositories;
@@ -12,7 +12,7 @@ using KidycareBackend.RegistrationServices.Application.Internal.CommandServices;
 using KidycareBackend.RegistrationServices.Application.Internal.QueryServices;
 using KidycareBackend.RegistrationServices.Domain.Repositories;
 using KidycareBackend.RegistrationServices.Domain.Services;
-using KidycareBackend.RegistrationServices.Infrastructure.Repositories;
+using KidycareBackend.RegistrationServices.Infrastructure.Persistence.EFC.Repositories;
 using KidycareBackend.Shared.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -70,9 +70,6 @@ builder.Services.AddControllers(options =>
  builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
  builder.Services.AddScoped<IPaymentCommandService, PaymentCommandService>();
  builder.Services.AddScoped<IPaymentQueryService, PaymentQueryService>();
-
-
-// Dependency injection
 
 // Profile bounded context
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();

@@ -5,7 +5,7 @@ using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace KidycareBackend.Reservations.Infrastructure.Repositories;
+namespace KidycareBackend.Reservations.Infrastructure.Persistence.EFC.Repositories;
 
 public class ReservationRepository(AppDbContext Context) 
     : BaseRepository<Reservation>(Context), IReservationRepository
