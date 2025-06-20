@@ -23,8 +23,4 @@
       <Folder Include="Reservations\Domain\Model\Entities\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Reviews\Interfaces\Transform\" />
-    </ItemGroup>
-
 </Project>

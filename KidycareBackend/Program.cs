@@ -13,6 +13,11 @@ using KidycareBackend.RegistrationServices.Application.Internal.QueryServices;
 using KidycareBackend.RegistrationServices.Domain.Repositories;
 using KidycareBackend.RegistrationServices.Domain.Services;
 using KidycareBackend.RegistrationServices.Infrastructure.Persistence.EFC.Repositories;
+using KidycareBackend.Reviews.Application.Internal.CommandServices;
+using KidycareBackend.Reviews.Application.Internal.QueryServices;
+using KidycareBackend.Reviews.Domain.Repositories;
+using KidycareBackend.Reviews.Domain.Services;
+using KidycareBackend.Reviews.Infrastructure.Persistence.EFC.Repositories;
 using KidycareBackend.Shared.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -83,6 +88,11 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
  builder.Services.AddScoped<IReservationCommandService, ReservationCommandService>();
  builder.Services.AddScoped<IReservationQueryService, ReservationQueryService>();
  builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+
+ builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+ builder.Services.AddScoped<IReviewCommandService, ReviewCommandService>();
+ builder.Services.AddScoped<IReviewQueryService, ReviewQueryService>();
+
 
  builder.Services.AddCors(options =>
  {
