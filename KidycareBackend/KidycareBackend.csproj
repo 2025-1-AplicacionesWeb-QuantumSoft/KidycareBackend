@@ -20,8 +20,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="RegistrationServices\Domain\Model\Commands\" />
-      <Folder Include="RegistrationServices\Domain\Model\Queries\" />
       <Folder Include="RegistrationServices\Interfaces\" />
     </ItemGroup>
 

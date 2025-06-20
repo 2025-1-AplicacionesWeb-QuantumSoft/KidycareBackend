@@ -1,4 +1,6 @@
-﻿namespace KidycareBackend.RegistrationServices.Domain.Model.Aggregates;
+﻿using KidycareBackend.RegistrationServices.Domain.Model.Commands;
+
+namespace KidycareBackend.RegistrationServices.Domain.Model.Aggregates;
 
 public class Profile
 {
@@ -21,6 +23,13 @@ public class Profile
     {
         ProfileApiKey = string.Empty;
         SourceId = string.Empty;
+        Name = string.Empty;
+        Lastname = string.Empty;
+        Email = string.Empty;
+        Phone = string.Empty;
+        Location = string.Empty;
+        Biography = string.Empty;
+        About = string.Empty;
     }
     
     public Profile(int userId, string name, string lastname, string email, string phone, string location, int experience, string biography, string about, double rating)
@@ -36,6 +45,8 @@ public class Profile
         About = about;
         Rating = rating;
         
+        ProfileApiKey = string.Empty;
+        SourceId = string.Empty;
     }
 
     public Profile(CreateProfileCommand command)
