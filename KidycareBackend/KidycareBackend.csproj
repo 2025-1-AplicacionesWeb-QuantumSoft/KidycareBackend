@@ -19,4 +19,10 @@
         <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="8.1.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="RegistrationServices\Domain\Model\Commands\" />
+      <Folder Include="RegistrationServices\Domain\Model\Queries\" />
+      <Folder Include="RegistrationServices\Interfaces\" />
+    </ItemGroup>
+
 </Project>
