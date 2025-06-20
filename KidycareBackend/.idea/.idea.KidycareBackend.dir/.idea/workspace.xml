@@ -11,8 +11,10 @@
     <list default="true" id="e47dc1ca-70f2-4bf2-982c-bbf53e2d3192" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KidycareBackend.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidycareBackend.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KidycareBackend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/KidycareBackend.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reviews/Application/Internal/CommandServices/ReviewCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Application/Internal/CommandServices/ReviewCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Services/IReviewCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Services/IReviewCommandService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Interfaces/Resources/CreateReviewResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Interfaces/Resources/CreateReviewResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Interfaces/Resources/ReviewResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Interfaces/Resources/ReviewResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750309409335</updated>
-      <workItem from="1750309412766" duration="41502000" />
+      <workItem from="1750309412766" duration="49471000" />
     </task>
     <servers />
   </component>
