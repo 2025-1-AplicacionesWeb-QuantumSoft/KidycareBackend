@@ -8,6 +8,11 @@ using KidycareBackend.Pay.Application.Internal.QueryServices;
 using KidycareBackend.Pay.Domain.Repositories;
 using KidycareBackend.Pay.Domain.Services;
 using KidycareBackend.Pay.Infrastruture.Persistence.EFC.Repositories;
+using KidycareBackend.RegistrationServices.Application.Internal.CommandServices;
+using KidycareBackend.RegistrationServices.Application.Internal.QueryServices;
+using KidycareBackend.RegistrationServices.Domain.Repositories;
+using KidycareBackend.RegistrationServices.Domain.Services;
+using KidycareBackend.RegistrationServices.Infrastructure.Repositories;
 using KidycareBackend.Shared.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -18,11 +23,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-// Configure Lower Case URLs
- builder.Services.AddRouting(options => options.LowercaseUrls = true);
+// Configure lowercase URLs
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
-// Configure Kebab Case Route Naming Convention
- builder.Services.AddControllers(options => options.Conventions.Add(new KebabCaseRouteNamingConvention()));
+// Configure kebab-case route naming
+builder.Services.AddControllers(options =>
+    options.Conventions.Add(new KebabCaseRouteNamingConvention()));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnet/core/swashbuckle
  builder.Services.AddEndpointsApiExplorer();
@@ -64,11 +70,17 @@ var builder = WebApplication.CreateBuilder(args);
  builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
  builder.Services.AddScoped<IPaymentCommandService, PaymentCommandService>();
  builder.Services.AddScoped<IPaymentQueryService, PaymentQueryService>();
- 
 
 
-// Shared Bounded Context Injection Configuration
-  builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+// Dependency injection
+
+// Profile bounded context
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
+builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
+
+// Shared
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // News Bounded Context Injection Configuration
  builder.Services.AddScoped<IReservationCommandService, ReservationCommandService>();
@@ -104,5 +116,4 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-
 app.Run();
