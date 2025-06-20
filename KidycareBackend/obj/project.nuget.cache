@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HWKdRNb3dq8=",
+  "dgSpecHash": "EuNONc+IwWk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\USUARIO\\Desktop\\AppBackend\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
+  "projectFilePath": "D:\\u\\aplicaciones web\\backend\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USUARIO\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\entityframeworkcore.createdupdateddate\\8.0.0\\entityframeworkcore.createdupdateddate.8.0.0.nupkg.sha512",
