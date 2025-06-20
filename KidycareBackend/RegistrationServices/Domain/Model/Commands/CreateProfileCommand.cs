@@ -14,6 +14,8 @@ namespace KidycareBackend.RegistrationServices.Domain.Model.Commands
         int Experience,
         string Biography,
         string About,
-        double Rating
+        double Rating,
+        string ProfileApiKey,
+        string SourceId
     );
 }
