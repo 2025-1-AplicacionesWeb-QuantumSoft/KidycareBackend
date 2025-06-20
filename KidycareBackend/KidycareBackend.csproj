@@ -20,11 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Reviews\Application\Internal\QueryServices\" />
-      <Folder Include="Reviews\Domain\Model\" />
-      <Folder Include="Reviews\Domain\Repositories\" />
-      <Folder Include="Reviews\Infrastructure\Repositories\" />
-      <Folder Include="Reviews\Interfaces\Resources\Transform\" />
+      <Folder Include="Reviews\Interfaces\Transform\" />
     </ItemGroup>
 
 </Project>
