@@ -1,0 +1,11 @@
+services:
+  kidycarebackend:
+    image: kidycarebackend
+    build:
+      context: .
+      dockerfile: KidycareBackend/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=server=mysql.railway.internal;database=railway;user=root;password=YbuObmeKLcjkIBMmpKNZMrGXKBUhAiSZ;
+    ports:
+      - "8080:8080"
