@@ -112,3 +112,4 @@ D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\obj\Debug\net9.0\r
 D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\obj\Debug\net9.0\KidycareBackend.pdb
 D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\obj\Debug\net9.0\KidycareBackend.genruntimeconfig.cache
 D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\obj\Debug\net9.0\ref\KidycareBackend.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\appsettings.Production.json

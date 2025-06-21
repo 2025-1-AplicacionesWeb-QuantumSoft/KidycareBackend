@@ -1,13 +1,19 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+﻿
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
+WORKDIR /app
 
-WORKDIR /src
-COPY . .
+COPY ["KidycareBackend.csproj", "."]
+RUN dotnet restore
 
-RUN dotnet restore "KidycareBackend/KidycareBackend.csproj"
-
-WORKDIR /src/KidycareBackend
-
-RUN dotnet build "KidycareBackend.csproj" -c $BUILD_CONFIGURATION -o /app/build
+COPY . ./
 
 
+RUN dotnet publish "KidycareBackend.csproj" -c $BUILD_CONFIGURATION -o /app/publish
+
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/publish .
+
+ENTRYPOINT ["dotnet", "KidycareBackend.dll"]
