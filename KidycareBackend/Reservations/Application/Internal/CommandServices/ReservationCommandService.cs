@@ -31,10 +31,26 @@ public class ReservationCommandService(IReservationRepository reservationReposit
 
     public async Task<Reservation?> handle(UpdateReservationByIdCommand command)
     {
-        var reservation = await reservationRepository.GetReservationById(command.reservation.Id);
-        if (reservation == null)
+        var existReservation = await reservationRepository.GetReservationById(command.Id);
+        if (existReservation == null)
             throw new Exception("Reservation not found");
         
+        var reservation = new Reservation(
+            command.Id, 
+            command.ParentId, 
+            command.BabysitterId, 
+            command.StartTime, 
+            command.EndTime, 
+            command.address, 
+            command.frecuency, 
+            command.ChildName, 
+            command.ChildAge, 
+            command.SpecialNeeds, 
+            command.AdditionalInfo, 
+            command.Status, 
+            command.NotificationId, 
+            command.CreatedAt
+        );
         try
         {
             await reservationRepository.UpdateReservation(reservation);

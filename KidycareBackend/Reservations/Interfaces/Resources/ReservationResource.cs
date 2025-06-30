@@ -8,6 +8,12 @@ public record ReservationResource(
     BabysitterId BabysitterId,
     ReservationDate StartTime,
     ReservationDate EndTime,
+    string Address,
+    string Frequency,
+    string ChildName,
+    string ChildAge,
+    string SpecialNeeds,
+    string AdditionalInfo,
     ReservationStatus Status,
     NotificationId NotificationId,
     DateTime CreatedAt

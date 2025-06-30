@@ -12,6 +12,12 @@ public class ReservationResourceFromEntityAssembler
             entity.BabysitterId,
             entity.StartTime,
             entity.EndTime,
+            entity.address,
+            entity.frecuency,
+            entity.childName,
+            entity.childAge,
+            entity.specialNeeds,
+            entity.additionalInfo,
             entity.Status,
             entity.NotificationId,
             entity.CreatedAt);
