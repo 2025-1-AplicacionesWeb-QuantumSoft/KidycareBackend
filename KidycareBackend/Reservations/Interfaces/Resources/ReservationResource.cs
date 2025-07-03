@@ -11,7 +11,7 @@ public record ReservationResource(
     string Address,
     string Frequency,
     string ChildName,
-    string ChildAge,
+    int ChildAge,
     string SpecialNeeds,
     string AdditionalInfo,
     ReservationStatus Status,

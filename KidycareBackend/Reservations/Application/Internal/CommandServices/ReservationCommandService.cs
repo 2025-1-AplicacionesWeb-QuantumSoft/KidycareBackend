@@ -13,7 +13,7 @@ public class ReservationCommandService(IReservationRepository reservationReposit
     {
         var reservation =
             await reservationRepository.GetReservationByBabysitterIdAndParentId(command.BabysitterId, command.ParentId);
-        if(reservation == null)
+        if(reservation != null)
             throw new Exception("Reservation already exists");
         reservation = new Reservation(command);
         try
@@ -37,19 +37,19 @@ public class ReservationCommandService(IReservationRepository reservationReposit
         
         var reservation = new Reservation(
             command.Id, 
-            command.ParentId, 
-            command.BabysitterId, 
-            command.StartTime, 
-            command.EndTime, 
+            command.parentId, 
+            command.babysitterId, 
+            command.startTime, 
+            command.endTime, 
             command.address, 
-            command.frecuency, 
-            command.ChildName, 
-            command.ChildAge, 
-            command.SpecialNeeds, 
-            command.AdditionalInfo, 
-            command.Status, 
-            command.NotificationId, 
-            command.CreatedAt
+            command.frequency, 
+            command.childName, 
+            command.childAge, 
+            command.specialNeeds, 
+            command.additionalInfo, 
+            command.status, 
+            command.notificationId, 
+            command.createdAt
         );
         try
         {

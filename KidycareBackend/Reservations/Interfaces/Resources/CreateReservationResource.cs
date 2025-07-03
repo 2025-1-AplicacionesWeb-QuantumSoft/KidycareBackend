@@ -6,12 +6,12 @@ public record CreateReservationResource(
     DateTime StartTime,
     DateTime EndTime,
     string address,
-    string frecuency,
+    string frequency,
     string childName,
-    string childAge,
+    int childAge,
     string specialNeeds,
-    string aditionalInfo,
+    string additionalInfo,
     string Status,
     int NotificationId,
-    DateTime CreatedAt
+    DateTime createdAt
 );

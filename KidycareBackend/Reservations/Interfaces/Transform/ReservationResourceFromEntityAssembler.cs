@@ -13,7 +13,7 @@ public class ReservationResourceFromEntityAssembler
             entity.StartTime,
             entity.EndTime,
             entity.address,
-            entity.frecuency,
+            entity.frequency,
             entity.childName,
             entity.childAge,
             entity.specialNeeds,

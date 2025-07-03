@@ -9,7 +9,7 @@ public class Reservation
     
     public string childName { get; private set; }
     
-    public string childAge { get; private set; }
+    public int childAge { get; private set; }
     
     public string specialNeeds { get; private set; }
     
@@ -17,7 +17,7 @@ public class Reservation
     
     public string address { get; private set; }
     
-    public string frecuency { get; private set; }
+    public string frequency { get; private set; }
     public BabysitterId BabysitterId { get; private set; }
     public ParentId ParentId { get; private set; }
     public ReservationDate StartTime { get; private set; }
@@ -35,7 +35,7 @@ public class Reservation
         StartTime = command.StartTime;
         EndTime = command.EndTime;
         address = command.Address;
-        frecuency = command.Frequency;
+        frequency = command.Frequency;
         childName = command.ChildName;
         childAge = command.ChildAge;
         specialNeeds = command.SpecialNeeds;
@@ -45,8 +45,8 @@ public class Reservation
         CreatedAt = DateTime.UtcNow;
     }
     public Reservation(int id, ParentId parentId, BabysitterId babysitterId, ReservationDate startTime,
-        ReservationDate endTime, string address, string frecuency, string childName,
-        string childAge, string specialNeeds, string additionalInfo ,ReservationStatus status, NotificationId notificationId, DateTime createdAt)
+        ReservationDate endTime, string address, string frequency, string childName,
+        int childAge, string specialNeeds, string additionalInfo ,ReservationStatus status, NotificationId notificationId, DateTime createdAt)
     {
         Id = id;
         ParentId = parentId;
@@ -54,7 +54,7 @@ public class Reservation
         StartTime = startTime;
         EndTime = endTime;
         this.address = address;
-        this.frecuency = frecuency;
+        this.frequency = frequency;
         this.childName = childName;
         this.childAge = childAge;
         this.specialNeeds = specialNeeds;

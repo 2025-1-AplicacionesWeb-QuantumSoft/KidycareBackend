@@ -11,19 +11,19 @@ public class UpdateReservationByIdCommandFromResourceAssembler
     {
         return new UpdateReservationByIdCommand(
             id,
-            resource.ParentId,
-            resource.BabysitterId,
-            resource.StartTime,
-            resource.EndTime,
+            resource.parentId,
+            resource.babysitterId,
+            resource.startTime,
+            resource.endTime,
             resource.address,
-            resource.frecuency,
-            resource.ChildName,
-            resource.ChildAge,
-            resource.SpecialNeeds,
-            resource.AdditionalInfo,
-            resource.Status,
-            resource.NotificationId,
-            resource.CreatedAt
+            resource.frequency,
+            resource.childName,
+            resource.childAge,
+            resource.specialNeeds,
+            resource.additionalInfo,
+            resource.status,
+            resource.notificationId,
+            resource.createdAt
         );
     }
 }

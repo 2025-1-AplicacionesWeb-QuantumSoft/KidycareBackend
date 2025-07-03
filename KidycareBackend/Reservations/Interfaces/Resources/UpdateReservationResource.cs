@@ -1,17 +1,17 @@
 ﻿namespace KidycareBackend.Reservations.Interfaces.Resources;
 
 public record UpdateReservationResource(
-    int BabysitterId,
-    int ParentId,
-    DateTime StartTime,
-    DateTime EndTime,
+    int babysitterId,
+    int parentId,
+    DateTime startTime,
+    DateTime endTime,
     string address,
-    string frecuency,
-    string ChildName,
-    string ChildAge,
-    string SpecialNeeds,
-    string AdditionalInfo,
-    string Status,
-    int NotificationId,
-    DateTime CreatedAt
+    string frequency,
+    string childName,
+    int childAge,
+    string specialNeeds,
+    string additionalInfo,
+    string status,
+    int notificationId,
+    DateTime createdAt
     );
