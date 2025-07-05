@@ -6,7 +6,7 @@ namespace KidycareBackend.Reservations.Interfaces.Transform;
 public class CreateReservationCommandFromResourceAssembler
 {
     public static CreateReservationCommand ToCommandFromResource(CreateReservationResource resource) =>
-        new CreateReservationCommand( resource.BabysitterId, resource.ParentId, resource.StartTime,
-            resource.EndTime, resource.address,resource.frequency,resource.childName,resource.childAge,resource.specialNeeds,
-            resource.additionalInfo, resource.Status, resource.NotificationId, resource.createdAt);
+        new CreateReservationCommand( resource.babysitterId, resource.parentId, resource.startTime,
+            resource.endTime, resource.address,resource.frequency,resource.childName,resource.childAge,resource.specialNeeds,
+            resource.additionalInfo, resource.status, resource.notificationId, resource.createdAt);
 }

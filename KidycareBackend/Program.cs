@@ -1,7 +1,18 @@
+using System.Text;
+using Cortex.Mediator.Commands;
+using Cortex.Mediator.DependencyInjection;
+using KidycareBackend.IAM.Application.Internal.CommandServices;
+using KidycareBackend.IAM.Application.Internal.OutboundServices;
 using KidycareBackend.IAM.Application.Internal.QueryServices;
 using KidycareBackend.IAM.Domain.Repositories;
 using KidycareBackend.IAM.Domain.Services;
+using KidycareBackend.IAM.Infrastructure.Hashing.BCrypt.Services;
 using KidycareBackend.IAM.Infrastructure.Persistence.EFC.Repositories;
+using KidycareBackend.IAM.Infrastructure.Pipeline.Middleware.Extensions;
+using KidycareBackend.IAM.Infrastructure.Tokens.JWT.Configuration;
+using KidycareBackend.IAM.Infrastructure.Tokens.JWT.Services;
+using KidycareBackend.IAM.Interfaces.ACL;
+using KidycareBackend.IAM.Interfaces.ACL.Services;
 using KidycareBackend.Reservations.Application.Internal.CommandServices;
 using KidycareBackend.Reservations.Application.Internal.QueryServices;
 using KidycareBackend.Reservations.Domain.Repositories;
@@ -32,9 +43,13 @@ using KidycareBackend.Reviews.Domain.Services;
 using KidycareBackend.Reviews.Infrastructure.Persistence.EFC.Repositories;
 using KidycareBackend.Shared.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Interfaces.ASP.Configuration;
+using KidycareBackend.Shared.Infrastructure.Mediator.Cortex.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -76,7 +91,43 @@ builder.Services.AddControllers(options =>
     .LogTo(Console.WriteLine, LogLevel.Error)
     .EnableDetailedErrors();
   }); 
- 
+
+ builder.Services.AddEndpointsApiExplorer();
+ builder.Services.AddSwaggerGen(options =>
+ {
+  options.EnableAnnotations();
+  options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+  {
+   In = ParameterLocation.Header,
+   Description = "Please enter token",
+   Name = "Authorization",
+   Type = SecuritySchemeType.Http,
+   BearerFormat = "JWT",
+   Scheme = "bearer"
+  });
+  options.AddSecurityRequirement(new OpenApiSecurityRequirement
+  {
+   {
+    new OpenApiSecurityScheme
+    {
+     Reference = new OpenApiReference
+     {
+      Id = "Bearer",
+      Type = ReferenceType.SecurityScheme
+     }
+    },
+    Array.Empty<string>()
+   }
+  });
+ });
+
+ builder.Services.AddCors(options =>
+ {
+  options.AddPolicy("AllowFrontend",
+   policy => policy.WithOrigins("http://localhost:5173")
+    .AllowAnyHeader()
+    .AllowAnyMethod());
+ });
 // Configure Dependency Injection
 
 // User Bounded Context Configuration
@@ -117,19 +168,39 @@ builder.Services.AddScoped<IParentQueryService, ParentQueryService>();
 builder.Services.AddScoped<IParentRepository, ParentRepository>();
 builder.Services.AddScoped<IParentCommandService, ParentCommandService>();
 
-
+// TokenSettings Configuration
+builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));
  builder.Services.AddScoped< IUserRepository, UserRepository>();
  builder.Services.AddScoped<IUserQueryService, UserQueryService>();
-
- builder.Services.AddCors(options =>
- {
-  options.AddPolicy("AllowFrontend",
-   policy => policy.WithOrigins("http://localhost:5173")
-    .AllowAnyHeader()
-    .AllowAnyMethod());
- });
+ builder.Services.AddScoped<IUserCommandService, UserCommandService>();
+ builder.Services.AddScoped<ITokenService, TokenService>();
+ builder.Services.AddScoped<IHashingService, HashingService>();
+ builder.Services.AddScoped<IIamContextFacade, IamContextFacade>();
+ 
+builder.Services.AddScoped(typeof(ICommandPipelineBehavior<>), typeof(LoggingCommandBehavior<>));
  /*var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
  builder.WebHost.UseUrls($"http://0.0.0.0:{port}");*/
+ builder.Services.AddCortexMediator(
+  configuration: builder.Configuration,
+  handlerAssemblyMarkerTypes: new[] { typeof(Program) }, configure: options =>
+  {
+   options.AddOpenCommandPipelineBehavior(typeof(LoggingCommandBehavior<>));
+  });
+
+
+ /*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+  .AddJwtBearer(options =>
+  {
+   var secretKey = builder.Configuration["TokenSettings:Secret"];
+   options.TokenValidationParameters = new TokenValidationParameters
+   {
+    ValidateIssuer = false,
+    ValidateAudience = false,
+    ValidateLifetime = true,
+    ValidateIssuerSigningKey = true,
+    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey))
+   };
+  });*/
 
 var app = builder.Build();
 
@@ -141,14 +212,17 @@ using (var scope = app.Services.CreateScope())
    context.Database.EnsureCreated();
 }
 
+
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
 //  app.MapOpenApi();
 //}
-app.UseCors("AllowFrontend");
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseCors("AllowFrontend");
+//app.UseAuthentication();
+app.UseRequestAuthorization();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

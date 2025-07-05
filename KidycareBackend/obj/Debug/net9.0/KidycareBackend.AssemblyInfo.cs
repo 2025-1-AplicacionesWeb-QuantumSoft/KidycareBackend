@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KidycareBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+176911a8ff99a4dc63d6de1318f784247620d6e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db72671d94af5c288d2ac439cf376641bb230041")]
 [assembly: System.Reflection.AssemblyProductAttribute("KidycareBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KidycareBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

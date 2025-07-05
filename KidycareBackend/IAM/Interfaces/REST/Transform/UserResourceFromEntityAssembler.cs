@@ -1,7 +1,7 @@
 using KidycareBackend.IAM.Domain.Model.Aggregates;
 using KidycareBackend.IAM.Interfaces.REST.Resources;
 
-namespace KidycareBackend.IAM.Interfaces.REST.Tranform;
+namespace KidycareBackend.IAM.Interfaces.REST.Transform;
 
 public static class UserResourceFromEntityAssembler
 {
