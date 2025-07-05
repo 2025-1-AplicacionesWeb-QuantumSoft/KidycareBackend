@@ -1,3 +1,7 @@
+using KidycareBackend.IAM.Application.Internal.QueryServices;
+using KidycareBackend.IAM.Domain.Repositories;
+using KidycareBackend.IAM.Domain.Services;
+using KidycareBackend.IAM.Infrastructure.Persistence.EFC.Repositories;
 using KidycareBackend.Reservations.Application.Internal.CommandServices;
 using KidycareBackend.Reservations.Application.Internal.QueryServices;
 using KidycareBackend.Reservations.Domain.Repositories;
@@ -8,11 +12,13 @@ using KidycareBackend.Pay.Application.Internal.QueryServices;
 using KidycareBackend.Pay.Domain.Repositories;
 using KidycareBackend.Pay.Domain.Services;
 using KidycareBackend.Pay.Infrastruture.Persistence.EFC.Repositories;
+using KidycareBackend.Profiles.Application.ACL;
 using KidycareBackend.Profiles.Application.Internal.CommandServices;
 using KidycareBackend.Profiles.Application.Internal.QueryServices;
 using KidycareBackend.Profiles.Domain.Repositories;
 using KidycareBackend.Profiles.Domain.Services;
 using KidycareBackend.Profiles.Infrastructure.Persistence.EFC.Repositories;
+using KidycareBackend.Profiles.Interfaces.ACL;
 using KidycareBackend.Profiles.Interfaces.REST.Resources;
 using KidycareBackend.RegistrationServices.Application.Internal.CommandServices;
 using KidycareBackend.RegistrationServices.Application.Internal.QueryServices;
@@ -74,9 +80,6 @@ builder.Services.AddControllers(options =>
 // Configure Dependency Injection
 
 // User Bounded Context Configuration
- builder.Services.AddScoped<IUserRepository,UserRespository>();
- builder.Services.AddScoped<IUserCommandService, UserCommandService>();
- builder.Services.AddScoped<IUserQueryService, UserQueryService>();
 
 // Register repositories for Card and Payment
  builder.Services.AddScoped<ICardRepository, CardRepository>();
@@ -104,6 +107,19 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
  builder.Services.AddScoped<IReviewCommandService, ReviewCommandService>();
  builder.Services.AddScoped<IReviewQueryService, ReviewQueryService>();
 
+builder.Services.AddScoped<IBabysitterCommandService, BabysitterCommandService>();
+ builder.Services.AddScoped<IBabysitterQueryService, BabysitterQueryService>();
+builder.Services.AddScoped<IBabysitterRepository, BabysitterRepository>();
+
+builder.Services.AddScoped<IProfilesContextFacade, ProfilesContextFacade>();
+
+builder.Services.AddScoped<IParentQueryService, ParentQueryService>();
+builder.Services.AddScoped<IParentRepository, ParentRepository>();
+builder.Services.AddScoped<IParentCommandService, ParentCommandService>();
+
+
+ builder.Services.AddScoped< IUserRepository, UserRepository>();
+ builder.Services.AddScoped<IUserQueryService, UserQueryService>();
 
  builder.Services.AddCors(options =>
  {

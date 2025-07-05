@@ -30,6 +30,9 @@ public class Reservation
 
     public Reservation(CreateReservationCommand command)
     { 
+        if (command.StartTime.Value >= command.EndTime.Value)
+            throw new ArgumentException("Start time must be before end time");
+        
         BabysitterId = command.BabysitterId;
         ParentId = command.ParentId;
         StartTime = command.StartTime;

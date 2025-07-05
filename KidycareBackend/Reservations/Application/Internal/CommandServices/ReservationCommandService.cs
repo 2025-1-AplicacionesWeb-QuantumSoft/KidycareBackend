@@ -1,4 +1,5 @@
-﻿using KidycareBackend.Reservations.Domain.Model.Aggregates;
+﻿using KidycareBackend.Profiles.Interfaces.ACL;
+using KidycareBackend.Reservations.Domain.Model.Aggregates;
 using KidycareBackend.Reservations.Domain.Model.Commands;
 using KidycareBackend.Reservations.Domain.Repositories;
 using KidycareBackend.Reservations.Domain.Services;
@@ -6,11 +7,17 @@ using KidycareBackend.Shared.Domain.Repositories;
 
 namespace KidycareBackend.Reservations.Application.Internal.CommandServices;
 
-public class ReservationCommandService(IReservationRepository reservationRepository, IUnitOfWork unitOfWork)
+public class ReservationCommandService(IReservationRepository reservationRepository, IUnitOfWork unitOfWork, IProfilesContextFacade profilesContextFacade)
     : IReservationCommandService
 {
     public async Task<Reservation?> handle(CreateReservationCommand command)
     {
+        if (!await profilesContextFacade.ExistsParentWithIdAsync(command.ParentId.Value))
+            throw new Exception("Parent not found.");
+
+        if (!await profilesContextFacade.ExistsBabysitterWithIdAsync(command.BabysitterId.Value))
+            throw new Exception("Babysitter not found.");
+        
         var reservation =
             await reservationRepository.GetReservationByBabysitterIdAndParentId(command.BabysitterId, command.ParentId);
         if(reservation != null)

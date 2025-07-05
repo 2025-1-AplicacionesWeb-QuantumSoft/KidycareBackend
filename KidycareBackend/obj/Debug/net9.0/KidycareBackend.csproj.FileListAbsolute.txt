@@ -233,3 +233,14 @@ D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\obj\Deb
 D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\obj\Debug\net9.0\KidycareBackend.pdb
 D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\obj\Debug\net9.0\KidycareBackend.genruntimeconfig.cache
 D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\obj\Debug\net9.0\ref\KidycareBackend.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Cortex.Mediator.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\FluentValidation.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Scrutor.dll
+D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

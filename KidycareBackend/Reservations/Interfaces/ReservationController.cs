@@ -26,7 +26,7 @@ public class ReservationController(
         "The reservation was created.", typeof(ReservationResource))]
     [SwaggerResponse(400, 
         "The reservation was not created.")]
-    public async Task<ActionResult> CreateFavoriteSource([FromBody] CreateReservationResource resource)
+    public async Task<ActionResult> CreateReservationSource([FromBody] CreateReservationResource resource)
     {
         var createReservationCommand =
             CreateReservationCommandFromResourceAssembler.ToCommandFromResource(resource);
