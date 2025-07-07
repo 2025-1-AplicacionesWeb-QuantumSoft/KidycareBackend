@@ -11,9 +11,9 @@ namespace KidycareBackend.IAM.Domain.Model.Aggregates;
  *      system of the Learning Center Platform.
  * </remarks>
  */
-public class User(string username, string passwordHash)
+public class User(string username, string passwordHash, string role)
 {
-    public User() : this(String.Empty, String.Empty)
+    public User() : this(String.Empty, String.Empty, String.Empty)
     {
     }
     
@@ -22,6 +22,8 @@ public class User(string username, string passwordHash)
     public string Username { get; private set; } = username;
     
     [JsonIgnore] public string PasswordHash { get; private set; } = passwordHash;
+
+    public string role { get; set; } = role;
     
     /**
      * <summary>
@@ -35,7 +37,17 @@ public class User(string username, string passwordHash)
         Username = username;
         return this;
     }
-    
+    public User UpdateRole(string role)
+    {
+        role = ValidateRole(role);
+        return this;
+    }
+    private string ValidateRole(string role)
+    {
+        if (role != "babysitter" && role != "parent")
+            throw new ArgumentException("Role must be 'babysitter' or 'parent'");
+        return role;
+    }
     /**
  * <summary>
  *      Updates the password of the user.

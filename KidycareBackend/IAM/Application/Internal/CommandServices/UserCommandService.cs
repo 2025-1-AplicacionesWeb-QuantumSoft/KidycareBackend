@@ -59,7 +59,7 @@ public class UserCommandService(
                 throw new Exception($"Username {command.Username} is already taken");
 
             var hashedPassword = hashingService.HashPassword(command.Password);
-            var user = new User(command.Username, hashedPassword);
+            var user = new User(command.Username, hashedPassword, command.Role);
         
             await userRepository.AddAsync(user);
             await unitOfWork.CompleteAsync();

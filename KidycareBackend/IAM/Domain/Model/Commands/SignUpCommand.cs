@@ -8,4 +8,4 @@ namespace KidycareBackend.IAM.Domain.Model.Commands;
  *     This command is used to sign up a new user with their username and password.
  * </remarks>
  */
-public record SignUpCommand(string Username, string Password);
+public record SignUpCommand(string Username, string Password, string Role);
