@@ -223,7 +223,7 @@ app.UseSwaggerUI();
 app.UseCors("AllowFrontend");
 //app.UseAuthentication();
 app.UseRequestAuthorization();
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
