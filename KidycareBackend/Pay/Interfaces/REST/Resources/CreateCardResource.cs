@@ -2,8 +2,9 @@
 
 public record CreateCardResource(
         int UserId,
-        string CardNumber,
+        string NumberCard,
         string CardHolder,
-        string Cvv,
-        string ExpirationDate
+        int Code,
+        int Month,   
+        int Year
     );

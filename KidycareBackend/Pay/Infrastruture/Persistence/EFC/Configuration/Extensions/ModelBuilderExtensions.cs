@@ -1,5 +1,8 @@
 ﻿using KidycareBackend.Pay.Domain.Model.Aggregates;
+using KidycareBackend.Pay.Domain.Model.ValueObjects;
+using KidycareBackend.Profiles.Domain.Model.ValueObjects;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KidycareBackend.Pay.Infrastruture.Persistence.EFC.Configuration.Extensions;
 
@@ -7,14 +10,28 @@ public static class ModelBuilderExtensions
 {
     public static void ApplyCardConfiguration(this ModelBuilder builder)
     {
+        
         //Cards context
         builder.Entity<Card>().HasKey(c => c.Id);
         builder.Entity<Card>().Property(c=>c.Id).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<Card>().Property(c=>c.UserId).IsRequired();
-        builder.Entity<Card>().Property(c=>c.CardNumber).IsRequired().HasMaxLength(100);
+        builder.Entity<Card>().OwnsOne(c => c.CardNumber, n =>
+        {
+            n.WithOwner().HasForeignKey("Id");
+            n.Property(u => u.NumberCard).HasColumnName("CardNumber");
+        });
         builder.Entity<Card>().Property(c=>c.CardHolder).IsRequired().HasMaxLength(100);
-        builder.Entity<Card>().Property(c => c.Cvv).IsRequired();
-        builder.Entity<Card>().Property(c=>c.ExpirationDate).IsRequired();
+        builder.Entity<Card>().OwnsOne(c => c.Cvv, v =>
+        {
+            v.WithOwner().HasForeignKey("Id");
+            v.Property(w => w.Code).HasColumnName("Cvv");
+        });
+        builder.Entity<Card>().OwnsOne(c=>c.ExpirationDate, e =>
+        {
+            e.WithOwner().HasForeignKey("Id");
+            e.Property(a => a.Month).HasColumnName("ExpirationMonth");
+            e.Property(a => a.Year).HasColumnName("ExpirationYear");
+        });
         
     }
 }

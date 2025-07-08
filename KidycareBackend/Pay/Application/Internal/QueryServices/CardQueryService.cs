@@ -11,14 +11,9 @@ public class CardQueryService(ICardRepository cardRepository) : ICardQueryServic
     {
         return await cardRepository.ListAsync();
     }
-
-    public async Task<IEnumerable<Card>> Handle(GetAllCardByUserIdQuery query)
-    {
-        return await cardRepository.GetCardByUserId(query.UserId);
-    }
-
+    
     public async Task<Card?> Handle(GetCardByIdQuery query)
     {
-        return await cardRepository.FindByIdAsync(query.Id);
+        return await cardRepository.GetCardById(query.Id);
     }
 }

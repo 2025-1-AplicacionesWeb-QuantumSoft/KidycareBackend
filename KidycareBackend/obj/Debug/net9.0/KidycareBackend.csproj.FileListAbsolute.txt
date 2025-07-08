@@ -247,3 +247,17 @@ D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\S
 D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
 D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Cortex.Mediator.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\FluentValidation.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Scrutor.dll
+D:\AplicacionesWeb\Nueva carpeta\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

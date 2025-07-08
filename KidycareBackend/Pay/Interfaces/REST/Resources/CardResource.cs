@@ -1,10 +1,14 @@
-﻿namespace KidycareBackend.Pay.Interfaces.REST.Resources;
+﻿using KidycareBackend.Pay.Domain.Model.ValueObjects;
+using KidycareBackend.Profiles.Domain.Model.ValueObjects;
+
+namespace KidycareBackend.Pay.Interfaces.REST.Resources;
 
 public record CardResource(
-    int Id,
+    long Id,
     int UserId,
-    string CardNumber,
+    string NumberCard,
     string CardHolder,
-    string Cvv,
-    string ExpirationDate
+    int Code,
+    int Month,   
+    int Year
     );

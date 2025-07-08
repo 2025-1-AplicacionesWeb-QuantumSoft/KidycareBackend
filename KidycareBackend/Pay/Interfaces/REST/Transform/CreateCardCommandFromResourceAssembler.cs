@@ -8,8 +8,15 @@ public static class CreateCardCommandFromResourceAssembler
 {
     public static CreateCardCommand toCommandFromResource(CreateCardResource resource)
     {
-        return new CreateCardCommand(resource.UserId, resource.CardNumber, resource.CardHolder, 
-            resource.Cvv, resource.ExpirationDate);
+        return new CreateCardCommand(
+            resource.UserId,
+            resource.NumberCard,
+            resource.CardHolder,
+            resource.Code,
+            resource.Year,
+            resource.Month
+
+            );
         
     }
 }

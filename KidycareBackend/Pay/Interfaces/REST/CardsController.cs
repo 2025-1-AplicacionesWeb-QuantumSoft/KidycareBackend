@@ -20,15 +20,16 @@ public class CardsController(
     ) : ControllerBase
 {
     
-    [HttpGet("{CardId:int}")]
+    [HttpGet("{cardId:long}")]
     [SwaggerOperation(
-        Summary = "Get Card by UserId",
+        Summary = "Get Card by CardId",
         Description = "Retrieves a Card available in the KidyCare Platform.",
         OperationId = "GetCardById")
     ]
     [SwaggerResponse(StatusCodes.Status200OK, "Returns a Card", typeof(CardResource))]
-    public async Task<IActionResult> GetCardById(int cardId)
-    {
+    [SwaggerResponse(statusCode:400, "The card was not found")]
+    public async Task<IActionResult> GetCardById(long cardId)
+    {   
         var getCardByIdQuery = new GetCardByIdQuery(cardId);
         var card = await cardQueryService.Handle(getCardByIdQuery);
         if (card == null)
@@ -81,17 +82,17 @@ public class CardsController(
         "The card was successfully updated.", typeof(CardResource))]
     [SwaggerResponse(StatusCodes.Status404NotFound,
         "The card with the specified ID was not found.")]
-    public async Task<ActionResult> UpdateCardById(int id)
+    public async Task<ActionResult> UpdateCardById( long cardId, [FromBody] UpdateCardResource resource)
     {
-        var getCardByIdQuery = new GetCardByIdQuery(id);
+        var getCardByIdQuery = new GetCardByIdQuery(cardId);
         var result = await cardQueryService.Handle(getCardByIdQuery);
         if (result is null) return NotFound();
-        var updateCardCommand = new UpdateCardByIdCommand(result.Id);
-        var updatedResult = await cardCommandService.Handle(updateCardCommand);
+        var updateCardCommand =  UpdateCardByIdCommandFromResourceAssembler.ToCommandFromResource(resource, cardId);
+        var updatedResult = await cardCommandService.Handle(updateCardCommand,cardId);
         
         if (updatedResult is null) return BadRequest();
-        var resource = CardResourceFromEntityAssembler.ToResourceFromEntity(updatedResult);
-        return Ok(resource);
+        var updateResource = CardResourceFromEntityAssembler.ToResourceFromEntity(updatedResult);
+        return Ok(updateResource);
     }
     
     [HttpDelete("{id}")]

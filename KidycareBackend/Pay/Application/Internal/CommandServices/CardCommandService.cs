@@ -1,5 +1,6 @@
 ﻿using KidycareBackend.Pay.Domain.Model.Aggregates;
 using KidycareBackend.Pay.Domain.Model.Commands;
+using KidycareBackend.Pay.Domain.Model.ValueObjects;
 using KidycareBackend.Pay.Domain.Repositories;
 using KidycareBackend.Pay.Domain.Services;
 using KidycareBackend.Shared.Domain.Repositories;
@@ -42,24 +43,39 @@ public class CardCommandService(ICardRepository cardRepository, IUnitOfWork unit
         return true;
     }
 
-    public async Task<Card> Handle(UpdateCardByIdCommand byIdCommand)
+    public async Task<Card> Handle(UpdateCardByIdCommand command, long cardId)
     {
-        var card = await cardRepository.GetCardById(byIdCommand.Id);
-        if (card == null)
-        {
-            throw new Exception("No Card found");
-        }
+        var cardExisting = await cardRepository.GetCardById(cardId);
+        if (cardExisting == null)
+            throw new Exception("Card not found");
 
         try
         {
-            await cardRepository.UpdateCard(card);
+            if (!string.IsNullOrEmpty(command.NumberCard) && command.NumberCard.Length == 16)
+            {
+                // Asignar el número de tarjeta si tiene 16 dígitos
+                cardExisting.CardNumber = new RCardNumber(command.NumberCard);
+            }
+            
+            if (!string.IsNullOrEmpty(command.CardHolder))
+            {
+                cardExisting.CardHolder = command.CardHolder;
+            }
+            
+            if (command.Year != 0 && command.Month != 0)
+            {
+                cardExisting.ExpirationDate = new ExpirationDateCard(command.Month, command.Year);
+            }
+            
+            await cardRepository.UpdateCard(cardExisting);
             await unitOfWork.CompleteAsync();
+            return cardExisting;
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            return null;
+            throw;
         }
-        return card;
     }
+
 }
