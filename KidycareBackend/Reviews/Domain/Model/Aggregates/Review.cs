@@ -4,19 +4,19 @@ namespace KidycareBackend.Reviews.Domain.Model.Aggregates;
 
 public class Review
 {
-    public string reviewApiKey { get;  }
+    public string reviewApiKey { get;  } 
 
-    public string reviewId { get; private set; }
+    public string reviewId { get; private set; } //que el nombre coincida con el front 
 
-    public int rating { get; private set; }
+    public int rating { get; private set; } //
     
-    public string comment { get; private set; }
+    public string comment { get; private set; } //
     
-    public string parentId { get; private set; }
+    public string parentId { get; private set; } //
     
-    public string babysitterId { get; private set; }
+    public string babysitterId { get; private set; } //
     
-    public DateTime date { get; private set; }
+    public DateTime date { get; private set; } //
 
     protected Review()
     {
@@ -26,7 +26,7 @@ public class Review
         comment = string.Empty;
         parentId = string.Empty;
         babysitterId = string.Empty;
-        date = DateTime.MinValue;    
+        date = DateTime.UtcNow;    
     }
 
     public Review(CreateReviewCommand command)

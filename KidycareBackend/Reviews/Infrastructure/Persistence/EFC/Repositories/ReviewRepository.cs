@@ -12,13 +12,9 @@ public class ReviewRepository(AppDbContext context) : BaseRepository<Review>(con
     {
         throw new NotImplementedException();
     }
+    
 
-    public Task<IEnumerable<Review>> GetReviewByBabysitterId(string babysitterId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<Review> GetReviewById(string reviewId)
+public async Task<Review> GetReviewById(string reviewId)
     {
         return await Context.Set<Review>().
             FirstOrDefaultAsync(r => r.reviewApiKey == reviewId);

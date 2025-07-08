@@ -13,10 +13,7 @@ public class ReviewQueryService(IReviewRepository reviewRepository)
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Review>> Handle(GetReviewsByBabysitterIdQuery query)
-    {
-        throw new NotImplementedException();
-    }
+    
 
     public Task<IEnumerable<Review>> Handle(GetReviewByIdQuery query)
     {

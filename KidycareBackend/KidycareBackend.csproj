@@ -19,4 +19,8 @@
         <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="8.1.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Reviews\Infrastructure\Persistence\EFC\Configurations\Extensions\" />
+    </ItemGroup>
+
 </Project>

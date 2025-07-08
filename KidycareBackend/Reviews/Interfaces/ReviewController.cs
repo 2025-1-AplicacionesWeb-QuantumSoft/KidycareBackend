@@ -65,14 +65,7 @@ public class ReviewController : ControllerBase
         var resources = result.Select(ReviewResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
     }
-
-    private async Task<ActionResult> GetReviewsByBabysitterId(string babysitterId)
-    {
-        var query = new GetReviewsByBabysitterIdQuery(babysitterId);
-        var result = await _reviewQueryService.Handle(query);
-        var resources = result.Select(ReviewResourceFromEntityAssembler.ToResourceFromEntity);
-        return Ok(resources);
-    }
+    
 
     [HttpGet]
     [SwaggerOperation(
@@ -87,9 +80,31 @@ public class ReviewController : ControllerBase
         if (!string.IsNullOrEmpty(parentId))
             return await GetAllReviewsByParentId(parentId);
 
-        if (!string.IsNullOrEmpty(babysitterId))
-            return await GetReviewsByBabysitterId(babysitterId);
 
         return BadRequest("Debe proporcionar 'parentId' o 'babysitterId'");
     }
+    
+    [HttpDelete("{id}")]
+    [SwaggerOperation(
+        Summary = "Elimina una review por ID",
+        Description = "Elimina una review usando su identificador único.",
+        OperationId = "DeleteReviewById")]
+    [SwaggerResponse(StatusCodes.Status204NoContent, "La review fue eliminada exitosamente.")]
+    [SwaggerResponse(StatusCodes.Status404NotFound, "No se encontró la review con el ID especificado.")]
+    
+    public async Task<ActionResult> DeleteReviewById(string id)
+    {
+        var getReviewByIdQuery = new GetReviewByIdQuery(id);
+        var result = await _reviewQueryService.Handle(getReviewByIdQuery);
+        if (result is null) return NotFound();
+
+        var deleteReviewCommand = new DeleteReviewByIdCommand(id);
+        var deleteResult = await _reviewCommandService.Handle(deleteReviewCommand);
+
+        if (deleteResult is null) return BadRequest();
+        
+        return NoContent();
+    }
+    
+    
 }

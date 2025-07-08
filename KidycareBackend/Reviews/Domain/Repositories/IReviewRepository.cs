@@ -7,8 +7,6 @@ public interface IReviewRepository: IBaseRepository<Review>
 {
     Task<IEnumerable<Review>> GetReviewByParentId(string parentId);
     
-    Task<IEnumerable<Review>> GetReviewByBabysitterId(string babysitterId);
-    
     Task<Review> GetReviewById(string reviewId);
     
     Task<Review> GetReviewByBabysitterIdAndParentId(object babysitterId, object parentId);

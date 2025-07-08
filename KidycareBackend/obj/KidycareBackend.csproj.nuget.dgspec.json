@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj": {}
+    "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\TF\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj": {}
   },
   "projects": {
-    "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj": {
+    "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\TF\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
+        "projectUniqueName": "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\TF\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
         "projectName": "KidycareBackend",
-        "projectPath": "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
+        "projectPath": "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\TF\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
         "packagesPath": "C:\\Users\\joaqu\\.nuget\\packages\\",
-        "outputPath": "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\KidycareBackend\\KidycareBackend\\obj\\",
+        "outputPath": "D:\\joaqu\\MiPC\\UPC\\5.1 CICLO\\Aplicaciones web\\TF\\KidycareBackend\\KidycareBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joaqu\\AppData\\Roaming\\NuGet\\NuGet.Config"

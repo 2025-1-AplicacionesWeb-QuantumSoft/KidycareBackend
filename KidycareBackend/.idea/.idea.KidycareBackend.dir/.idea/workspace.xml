@@ -9,9 +9,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e47dc1ca-70f2-4bf2-982c-bbf53e2d3192" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Reviews/Interfaces/ReviewController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KidycareBackend.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidycareBackend.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KidycareBackend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/KidycareBackend.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Application/Internal/QueryServices/ReviewQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Application/Internal/QueryServices/ReviewQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Model/Aggregates/Review.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Model/Aggregates/Review.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Model/Queries/GetReviewsByBabysitterIdQuery.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Repositories/IReviewRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Repositories/IReviewRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Services/IReviewQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Services/IReviewQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Infrastructure/Repositories/ReviewRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Infrastructure/Persistence/EFC/Repositories/ReviewRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Interfaces/ReviewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Interfaces/ReviewController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/ref/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/ref/KidycareBackend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/refint/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/refint/KidycareBackend.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmrazor.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmrazor.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/rpswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/rpswa.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/KidycareBackend.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/KidycareBackend.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +58,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -41,6 +77,7 @@
   "keyToString": {
     ".NET Launch Settings Profile.KidycareBackend: http.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "feature/bc-review-system.V.0.1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -48,6 +85,11 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.KidycareBackend: http">
@@ -91,6 +133,8 @@
       <option name="presentableId" value="Default" />
       <updated>1750309409335</updated>
       <workItem from="1750309412766" duration="52111000" />
+      <workItem from="1751992696943" duration="232000" />
+      <workItem from="1751993004893" duration="7332000" />
     </task>
     <servers />
   </component>
