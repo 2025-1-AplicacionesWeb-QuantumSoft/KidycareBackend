@@ -22,6 +22,7 @@ public class PaymentsController(IPaymentQueryService paymentQueryService,
         OperationId = "GetAllPayment"
     )]
     [SwaggerResponse(StatusCodes.Status200OK, "Returns all available Payments ",typeof(IEnumerable<PaymentResource>))]
+    [SwaggerResponse(statusCode:400, "The payment was not found")]
     public async Task<IActionResult> GetAllPayments()
     {
         var payments = await paymentQueryService.Handle(new GetAllPaymentQuery());
@@ -29,23 +30,46 @@ public class PaymentsController(IPaymentQueryService paymentQueryService,
         return Ok(paymentsResources);
     }
     
-    [HttpGet("{PaymentId:int}")]
+    
+    
+    [HttpGet("byParent/{parentId:int}")]
     [SwaggerOperation(
-        Summary = "Get Payment by UserId",
+        Summary = "Get Payment by ParentId",
         Description = "Retrieves a Card available in the KidyCare Platform.",
         OperationId = "GetPaymentByUserId")
     ]
     [SwaggerResponse(StatusCodes.Status200OK, "Returns a Payment", typeof(PaymentResource))]
-    public async Task<IActionResult> GetPaymentByUserId(int userId)
+    [SwaggerResponse(statusCode:400, "The payment was not found")]
+    public async Task<IActionResult> GetPaymentByParentId(int parentId)
     {
-        var getPaymentByUserIdQuery = new GetAllPaymentByUserIdQuery(userId);
-        var payments = await paymentQueryService.Handle(getPaymentByUserIdQuery);
+        var getAllPaymentByParentId = new GetAllPaymentByParentIdQuery(parentId);
+        var payments = await paymentQueryService.Handle(getAllPaymentByParentId);
         var payment = payments.FirstOrDefault();
         if (payment is null)
         {
             return NotFound();
         }
 
+        var paymentResource = PaymentResourceFromEntityAssembler.ToResourceFromEntity(payment);
+        return Ok(paymentResource);
+    }
+    
+    [HttpGet("{paymentId:int}")]
+    [SwaggerOperation(
+        Summary = "Get Card by PaymentId",
+        Description = "Retrieves a Card available in the KidyCare Platform.",
+        OperationId = "GetPaymentId")
+    ]
+    [SwaggerResponse(StatusCodes.Status200OK, "Returns a Card", typeof(PaymentResource))]
+    [SwaggerResponse(statusCode:400, "The card was not found")]
+    public async Task<IActionResult> GetPaymentById(int paymentId)
+    {   
+        var getPaymentByIdQuery = new GetPaymentByIdQuery(paymentId);
+        var payment = await paymentQueryService.Handle(getPaymentByIdQuery);
+        if (payment == null)
+        {
+            return NotFound();
+        }
         var paymentResource = PaymentResourceFromEntityAssembler.ToResourceFromEntity(payment);
         return Ok(paymentResource);
     }
@@ -64,7 +88,7 @@ public class PaymentsController(IPaymentQueryService paymentQueryService,
         var payment = await paymentCommandService.Handle(createPaymentCommand);
         if (payment is null) return BadRequest();
         var paymentResource = PaymentResourceFromEntityAssembler.ToResourceFromEntity(payment);
-        return CreatedAtAction("GetPayment", new {id= payment.Id},paymentResource);
+        return CreatedAtAction("GetPaymentById", new {paymentId= paymentResource.Id},paymentResource);
     }
     
 }

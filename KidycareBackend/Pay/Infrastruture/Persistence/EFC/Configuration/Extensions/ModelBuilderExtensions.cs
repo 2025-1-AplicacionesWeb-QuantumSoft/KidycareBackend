@@ -33,5 +33,17 @@ public static class ModelBuilderExtensions
             e.Property(a => a.Year).HasColumnName("ExpirationYear");
         });
         
+    
+        
+        //Payment Context
+        builder.Entity<Payment>().HasKey(p => p.Id);
+        builder.Entity<Payment>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Payment>().Property(p=>p.Amount).IsRequired();
+        builder.Entity<Payment>().Property(p=>p.CardId).IsRequired();
+        builder.Entity<Payment>().Property(p=>p.Status).IsRequired();
+        builder.Entity<Payment>().Property(p=>p.CreatedAtDate).IsRequired();
+        builder.Entity<Payment>().Property(p=>p.ReservationId).IsRequired();
+        builder.Entity<Payment>().Property(p => p.ParentId).IsRequired();
+        
     }
 }

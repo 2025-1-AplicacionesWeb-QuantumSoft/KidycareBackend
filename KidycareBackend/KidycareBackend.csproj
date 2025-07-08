@@ -32,6 +32,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Pay\Domain\Model\Entities\" />
       <Folder Include="Profiles\" />
       <Folder Include="Profiles\Domain\Model\Entities\" />
     </ItemGroup>

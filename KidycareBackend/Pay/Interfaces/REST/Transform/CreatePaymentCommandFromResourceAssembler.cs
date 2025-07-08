@@ -7,7 +7,11 @@ public static class CreatePaymentCommandFromResourceAssembler
 {
     public static CreatePaymentCommand ToCommandFromResource(CreatePaymentResource resource)
     {
-        return new CreatePaymentCommand(resource.Amount, resource.CardId, resource.Status,
-            resource.CreateAt, resource.ReservationId, resource.UserId);
+        return new CreatePaymentCommand(
+            resource.Amount, 
+            resource.CardId, 
+            resource.CreatedAtDate, 
+            resource.ReservationId, 
+            resource.ParentId);
     }
 }

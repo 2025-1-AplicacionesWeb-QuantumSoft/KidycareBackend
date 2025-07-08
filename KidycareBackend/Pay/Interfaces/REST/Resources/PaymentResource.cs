@@ -6,9 +6,9 @@ namespace KidycareBackend.Pay.Interfaces.REST.Resources;
 public record PaymentResource(
     int Id,
     decimal Amount,
-    Card Card,
-    PaymentStatus Status,
-    DateTime CreateAt,
+    long CardId,
+    string Status,
+    DateTime? CreatedAtDate,
     int ReservationId,
-    int UserId
+    int ParentId
     );
