@@ -31,23 +31,14 @@
             return review;
         }
 
-        public async Task<Review> Handle(UpdateReviewByIdCommand command)
+        public async Task<Review> Handle(UpdateReviewByIdCommand command, string reviewId)
         {
-            var review = await reviewRepository.GetReviewById(command.reviewApiKey);
-            if (review == null)
+            var reviewExisting = await reviewRepository.GetReviewById(reviewId);
+            if (reviewExisting == null)
                 throw new Exception("Review not found");
+            
+            
 
-            try
-            {
-                await reviewRepository.UpdateReview(review);
-                await unitOfWork.CompleteAsync();
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-
-            return review;
         }
 
         public async Task<Review> Handle(DeleteReviewByIdCommand command)

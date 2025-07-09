@@ -7,5 +7,5 @@ public interface IReviewQueryService
 {
     Task <IEnumerable<Review>> Handle(GetAllReviewsByParentIdQuery query);
     
-    Task <IEnumerable<Review>> Handle(GetReviewByIdQuery query);
+    Task <Review?> Handle(GetReviewByIdQuery query);
 }

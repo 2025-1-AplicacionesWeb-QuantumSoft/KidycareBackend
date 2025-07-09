@@ -8,16 +8,18 @@ namespace KidycareBackend.Reviews.Infrastructure.Repositories;
 
 public class ReviewRepository(AppDbContext context) : BaseRepository<Review>(context), IReviewRepository
 {
-    public Task<IEnumerable<Review>> GetReviewByParentId(string parentId)
-    {
-        throw new NotImplementedException();
-    }
-    
-
-public async Task<Review> GetReviewById(string reviewId)
+    public async Task<IEnumerable<Review>> FindByReviewIdAsync(string parentId)
     {
         return await Context.Set<Review>().
-            FirstOrDefaultAsync(r => r.reviewApiKey == reviewId);
+            Where(r => r.parentId == parentId).
+            ToListAsync();
+    }
+    
+    
+    public async Task<Review?> GetReviewById(string reviewId)
+    {
+        return await Context.Set<Review>().
+            FirstOrDefaultAsync(r => r.reviewApiKey == reviewId);//necesito ayudin 
     }
     
     public async Task<Review> GetReviewByBabysitterIdAndParentId(object babysitterId, object parentId)

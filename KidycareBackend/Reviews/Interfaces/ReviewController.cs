@@ -54,7 +54,7 @@ public class ReviewController : ControllerBase
         var result = await _reviewQueryService.Handle(query);
         if (result is null) return NotFound();
 
-        var resources = result.Select(ReviewResourceFromEntityAssembler.ToResourceFromEntity);
+        var resources = ReviewResourceFromEntityAssembler.ToResourceFromEntity;
         return Ok(resources);
     }
 

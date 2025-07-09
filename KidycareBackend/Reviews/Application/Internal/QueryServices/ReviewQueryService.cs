@@ -8,15 +8,13 @@ namespace KidycareBackend.Reviews.Application.Internal.QueryServices;
 public class ReviewQueryService(IReviewRepository reviewRepository) 
     : IReviewQueryService
 {
-    public Task<IEnumerable<Review>> Handle(GetAllReviewsByParentIdQuery query)
+    public async Task<IEnumerable<Review>> Handle(GetAllReviewsByParentIdQuery query)
     {
-        throw new NotImplementedException();
+        return await reviewRepository.FindByReviewIdAsync(query.parentId);
     }
 
-    
-
-    public Task<IEnumerable<Review>> Handle(GetReviewByIdQuery query)
+    public async Task<Review?> Handle(GetReviewByIdQuery query)
     {
-        throw new NotImplementedException();
+        return await reviewRepository.GetReviewById(query.reviewId);
     }
 }
