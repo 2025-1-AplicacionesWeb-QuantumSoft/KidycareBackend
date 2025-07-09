@@ -1,5 +1,5 @@
 ﻿using KidycareBackend.Profiles.Domain.Model.Aggregates;
-using KidycareBackend.Reservations.Domain.Model.ValueObjects;
+using KidycareBackend.Reviews.Domain.Model.ValueObjects;
 
 namespace KidycareBackend.Reviews.Domain.Model.Commands;
 

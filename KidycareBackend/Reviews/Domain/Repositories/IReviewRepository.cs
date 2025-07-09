@@ -1,4 +1,4 @@
-﻿using KidycareBackend.Reservations.Domain.Model.ValueObjects;
+﻿using KidycareBackend.Reviews.Domain.Model.ValueObjects;
 using KidycareBackend.Reviews.Domain.Model.Aggregates;
 using KidycareBackend.Shared.Domain.Repositories;
 
