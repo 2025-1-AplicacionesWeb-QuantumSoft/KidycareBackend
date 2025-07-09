@@ -25,7 +25,7 @@ public class ParentController(
         "The Parent was created.", typeof(ParentResource))]
     [SwaggerResponse(400, 
         "The Parent was not created.")]
-    public async Task<ActionResult> CreateParentSource([FromBody] CreateParentResource resource)
+    public async Task<ActionResult> q([FromBody] CreateParentResource resource)
     {
         var createParentCommand =
             CreateParentCommandFromResourceAssembler.ToCommandFromResource(resource);
