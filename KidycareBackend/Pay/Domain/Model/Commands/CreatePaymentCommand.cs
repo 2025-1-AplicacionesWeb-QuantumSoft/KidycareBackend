@@ -4,9 +4,8 @@ namespace KidycareBackend.Pay.Domain.Model.Commands;
 
 public record CreatePaymentCommand(
     decimal Amount,
-    int CardId,
-    PaymentStatus Status,
-    DateTime CreatedAt,
+    long CardId,
+    DateTime CreatedAtDate,
     int ReservationId,
-    int UserId
+    int ParentId
     );

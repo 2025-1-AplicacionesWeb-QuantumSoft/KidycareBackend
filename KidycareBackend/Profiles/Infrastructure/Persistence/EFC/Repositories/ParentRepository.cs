@@ -3,15 +3,16 @@ using KidycareBackend.Profiles.Domain.Model.Queries;
 using KidycareBackend.Profiles.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace KidycareBackend.Profiles.Infrastructure.Persistence.EFC.Repositories;
 
 public class ParentRepository(AppDbContext Context) 
     : BaseRepository<Parent>(Context), IParentRepository
 {
-    public Task<Parent?> FindByUserIdAsync(int userId)
+    public async Task<Parent?> FindByUserIdAsync(int userId)
     {
-        throw new NotImplementedException();
+        return await Context.Set<Parent>().FirstOrDefaultAsync(p => p.userId == userId);
     }
 
     public Task<Parent?> Handle(GetParentByIdQuery query)
@@ -19,9 +20,9 @@ public class ParentRepository(AppDbContext Context)
         throw new NotImplementedException();
     }
 
-    public Task<Parent?> Handle(GetParentByUserIdQuery query)
+    public async Task<Parent?> Handle(GetParentByUserIdQuery query)
     {
-        throw new NotImplementedException();
+        return await FindByUserIdAsync(query.UserId);
     }
 
     public Task<bool> ExistsByUserIdAsync(int userId)

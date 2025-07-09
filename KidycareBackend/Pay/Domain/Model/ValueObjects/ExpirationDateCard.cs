@@ -1,21 +1,29 @@
 ﻿
 
+using System.Data;
+
 namespace KidycareBackend.Pay.Domain.Model.ValueObjects;
 
-public record ExpirationDateCard(string Month, string Year)
+public record ExpirationDateCard(int Month, int Year )
 {
-    public ExpirationDateCard(): this(String.Empty,String.Empty){ }
-    
-    public ExpirationDateCard(string month) : this(month, string.Empty){ }
+    // Constructor sin parámetros
+    public ExpirationDateCard() : this(1, DateTime.Now.Year) { }
 
-    public string Date => $"{Month} / {Year}";
-    
+    // Constructor con parámetros
+    public ExpirationDateCard(int month) : this(month, DateTime.Now.Year) { }
+
+    // Propiedad para obtener la fecha
+    public string Date => $"{Month:D2} / {Year}";
+
+    // Validación
     public bool IsValid()
     {
-        if (!int.TryParse(Month, out int monthValue) || monthValue < 1 || monthValue > 12)
+        // Validación para el mes
+        if (Month < 1 || Month > 12)
             return false;
 
-        if (!int.TryParse(Year, out int yearValue) || yearValue <= 2020)
+        // Validación para el año
+        if (Year < DateTime.Now.Year || (Year == DateTime.Now.Year && Month < DateTime.Now.Month))
             return false;
 
         return true;

@@ -1,4 +1,4 @@
-﻿using KidycareBackend.Pay.Domain.Model.Entities;
+﻿using KidycareBackend.Pay.Domain.Model.Aggregates;
 using KidycareBackend.Pay.Domain.Repositories;
 using KidycareBackend.Shared.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -10,11 +10,13 @@ namespace KidycareBackend.Pay.Infrastruture.Persistence.EFC.Repositories;
 public class PaymentRepository(AppDbContext context): 
     BaseRepository<Payment>(context), IPaymentRepository
 {
-    public new async Task<IEnumerable<Payment>> FindByPaymentUserIdAsync(int userId)
+    public async Task<Payment?> GetPaymentById(int paymentId)
     {
-        return await Context.Set<Payment>()
-            .Include(payment => payment.UserId )
-            .Where(payment =>payment.UserId == userId )
-            .ToListAsync();
+        return await Context.Set<Payment>().FirstOrDefaultAsync(p => p.Id == paymentId);
+    }
+
+    public async Task<IEnumerable<Payment>> GetPaymentByParentId(int parentId)
+    {
+        return await Context.Set<Payment>().Where(p => p.ParentId == parentId).ToListAsync();
     }
 }

@@ -23,4 +23,9 @@ public class ReservationQueryService(IReservationRepository reservationRepositor
     {
         return await reservationRepository.FindByIdAsync(query.id);
     }
+    
+    public async Task<IEnumerable<Reservation>> handle(GetAllReservationsQuery query)
+    {
+        return await reservationRepository.ListAsync();
+    }
 }

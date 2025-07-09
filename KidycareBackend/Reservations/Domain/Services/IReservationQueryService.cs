@@ -10,6 +10,8 @@ public interface IReservationQueryService
     Task<IEnumerable<Reservation>> handle(GetAllReservationByParentIdQuery query);
 
     Task<IEnumerable<Reservation>> handle(GetAllReservationByBabysitterIdQuery query);
+    
+    Task<IEnumerable<Reservation>> handle(GetAllReservationsQuery query);
 
     Task<Reservation> handle(GetReservationByIdQuery command);
 }
