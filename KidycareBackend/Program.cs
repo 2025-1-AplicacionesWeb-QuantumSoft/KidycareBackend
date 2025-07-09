@@ -1,8 +1,29 @@
+using KidycareBackend.Reservations.Application.Internal.CommandServices;
+using KidycareBackend.Reservations.Application.Internal.QueryServices;
+using KidycareBackend.Reservations.Domain.Repositories;
+using KidycareBackend.Reservations.Domain.Services;
+using KidycareBackend.Reservations.Infrastructure.Persistence.EFC.Repositories;
+using KidycareBackend.Pay.Application.Internal.CommandServices;
+using KidycareBackend.Pay.Application.Internal.QueryServices;
+using KidycareBackend.Pay.Domain.Repositories;
+using KidycareBackend.Pay.Domain.Services;
+using KidycareBackend.Pay.Infrastruture.Persistence.EFC.Repositories;
+using KidycareBackend.Profiles.Application.Internal.CommandServices;
+using KidycareBackend.Profiles.Application.Internal.QueryServices;
+using KidycareBackend.Profiles.Domain.Repositories;
+using KidycareBackend.Profiles.Domain.Services;
+using KidycareBackend.Profiles.Infrastructure.Persistence.EFC.Repositories;
+using KidycareBackend.Profiles.Interfaces.REST.Resources;
 using KidycareBackend.RegistrationServices.Application.Internal.CommandServices;
 using KidycareBackend.RegistrationServices.Application.Internal.QueryServices;
 using KidycareBackend.RegistrationServices.Domain.Repositories;
 using KidycareBackend.RegistrationServices.Domain.Services;
-using KidycareBackend.RegistrationServices.Infrastructure.Repositories;
+using KidycareBackend.RegistrationServices.Infrastructure.Persistence.EFC.Repositories;
+using KidycareBackend.Reviews.Application.Internal.CommandServices;
+using KidycareBackend.Reviews.Application.Internal.QueryServices;
+using KidycareBackend.Reviews.Domain.Repositories;
+using KidycareBackend.Reviews.Domain.Services;
+using KidycareBackend.Reviews.Infrastructure.Persistence.EFC.Repositories;
 using KidycareBackend.Shared.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -20,40 +41,51 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddControllers(options =>
     options.Conventions.Add(new KebabCaseRouteNamingConvention()));
 
-// Swagger
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options => options.EnableAnnotations());
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnet/core/swashbuckle
+ builder.Services.AddEndpointsApiExplorer();
+ builder.Services.AddSwaggerGen(options => options.EnableAnnotations());
 
-// DB connection
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// Add Database Connection
+ var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-if (string.IsNullOrEmpty(connectionString))
-{
-    throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
-}
+// Verify if the connection string is not null or empty
+ if (string.IsNullOrEmpty(connectionString))
+ {
+     throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
+ }
 
-// Context and logging
-if (builder.Environment.IsDevelopment())
-{
-    builder.Services.AddDbContext<AppDbContext>(options =>
-    {
-        options.UseMySQL(connectionString)
-               .LogTo(Console.WriteLine, LogLevel.Information)
-               .EnableSensitiveDataLogging()
-               .EnableDetailedErrors();
-    });
-}
-else if (builder.Environment.IsProduction())
-{
-    builder.Services.AddDbContext<AppDbContext>(options =>
-    {
-        options.UseMySQL(connectionString)
-               .LogTo(Console.WriteLine, LogLevel.Error)
-               .EnableDetailedErrors();
-    });
-}
+// Configure Database Context and Logging Level
+ if (builder.Environment.IsDevelopment())
+  builder.Services.AddDbContext<AppDbContext>(options =>
+  {
+   options.UseMySQL(connectionString)
+    .LogTo(Console.WriteLine, LogLevel.Information)
+    .EnableSensitiveDataLogging()
+    .EnableDetailedErrors();
+  });
+ else  if (builder.Environment.IsProduction())
+  builder.Services.AddDbContext<AppDbContext>(options =>
+  {
+   options.UseMySQL(connectionString)
+    .LogTo(Console.WriteLine, LogLevel.Error)
+    .EnableDetailedErrors();
+  }); 
+ 
+// Configure Dependency Injection
 
-// Dependency injection
+// User Bounded Context Configuration
+ builder.Services.AddScoped<IUserRepository,UserRespository>();
+ builder.Services.AddScoped<IUserCommandService, UserCommandService>();
+ builder.Services.AddScoped<IUserQueryService, UserQueryService>();
+
+// Register repositories for Card and Payment
+ builder.Services.AddScoped<ICardRepository, CardRepository>();
+ builder.Services.AddScoped<ICardQueryService, CardQueryService>();
+ builder.Services.AddScoped<ICardCommandService, CardCommandService>();
+ 
+ builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+ builder.Services.AddScoped<IPaymentCommandService, PaymentCommandService>();
+ builder.Services.AddScoped<IPaymentQueryService, PaymentQueryService>();
 
 // Profile bounded context
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
@@ -63,17 +95,42 @@ builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
 // Shared
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+// News Bounded Context Injection Configuration
+ builder.Services.AddScoped<IReservationCommandService, ReservationCommandService>();
+ builder.Services.AddScoped<IReservationQueryService, ReservationQueryService>();
+ builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+
+ builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+ builder.Services.AddScoped<IReviewCommandService, ReviewCommandService>();
+ builder.Services.AddScoped<IReviewQueryService, ReviewQueryService>();
+
+
+ builder.Services.AddCors(options =>
+ {
+  options.AddPolicy("AllowFrontend",
+   policy => policy.WithOrigins("http://localhost:5173")
+    .AllowAnyHeader()
+    .AllowAnyMethod());
+ });
+ /*var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+ builder.WebHost.UseUrls($"http://0.0.0.0:{port}");*/
+
 var app = builder.Build();
 
-// Apply migrations or ensure DB creation
+// Verify if the database is created and apply migrations
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<AppDbContext>();
-    context.Database.EnsureCreated(); // o .Migrate() si usas migraciones
+   var services = scope.ServiceProvider;
+   var context = services.GetRequiredService<AppDbContext>();
+   context.Database.EnsureCreated();
 }
 
-// Pipeline
+// Configure the HTTP request pipeline.
+//if (app.Environment.IsDevelopment())
+//{
+//  app.MapOpenApi();
+//}
+app.UseCors("AllowFrontend");
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();

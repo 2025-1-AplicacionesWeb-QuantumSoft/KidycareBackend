@@ -4,7 +4,7 @@ using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace KidycareBackend.RegistrationServices.Infrastructure.Repositories;
+namespace KidycareBackend.RegistrationServices.Infrastructure.Persistence.EFC.Repositories;
 
 public class ProfileRepository : BaseRepository<Profile>, IProfileRepository
 {
