@@ -9,29 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e47dc1ca-70f2-4bf2-982c-bbf53e2d3192" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.KidycareBackend.dir/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidycareBackend.dir/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KidycareBackend.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidycareBackend.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reviews/Application/Internal/CommandServices/ReviewCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Application/Internal/CommandServices/ReviewCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Model/Aggregates/Review.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Model/Aggregates/Review.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Model/Commands/UpdateReviewByIdCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Model/Commands/UpdateReviewByIdCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reviews/Interfaces/ReviewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Interfaces/ReviewController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/ref/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/ref/KidycareBackend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/refint/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/refint/KidycareBackend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmrazor.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmrazor.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/rpswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/rpswa.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KidycareBackend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/KidycareBackend.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +101,7 @@
       <workItem from="1750309412766" duration="52111000" />
       <workItem from="1751992696943" duration="232000" />
       <workItem from="1751993004893" duration="21110000" />
-      <workItem from="1752065783778" duration="1056000" />
+      <workItem from="1752065783778" duration="3150000" />
     </task>
     <servers />
   </component>

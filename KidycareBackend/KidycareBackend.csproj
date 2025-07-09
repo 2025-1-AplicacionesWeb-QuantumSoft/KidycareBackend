@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Reviews\Infrastructure\Persistence\EFC\Configurations\Extensions\" />
+      <Folder Include="Reviews\Infrastructure\Persistence\EFC\Configuration\Extensions\" />
     </ItemGroup>
 
 </Project>
