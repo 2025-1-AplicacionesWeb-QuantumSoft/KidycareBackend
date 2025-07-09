@@ -80,6 +80,8 @@ public class ReviewController : ControllerBase
         if (!string.IsNullOrEmpty(parentId))
             return await GetAllReviewsByParentId(parentId);
 
+        if (!string.IsNullOrEmpty(babysitterId))
+            return await GetReviewsByBabysitterId(babysitterId);
 
         return BadRequest("Debe proporcionar 'parentId' o 'babysitterId'");
     }

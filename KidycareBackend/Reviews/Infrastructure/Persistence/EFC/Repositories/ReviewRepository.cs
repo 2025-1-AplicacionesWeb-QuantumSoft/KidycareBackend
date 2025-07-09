@@ -4,7 +4,7 @@ using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace KidycareBackend.Reviews.Infrastructure.Repositories;
+namespace KidycareBackend.Reviews.Infrastructure.Persistence.EFC.Repositories;
 
 public class ReviewRepository(AppDbContext context) : BaseRepository<Review>(context), IReviewRepository
 {
