@@ -1,18 +1,19 @@
-﻿using KidycareBackend.Reviews.Domain.Model.Aggregates;
+﻿using KidycareBackend.Reservations.Domain.Model.ValueObjects;
+using KidycareBackend.Reviews.Domain.Model.Aggregates;
 using KidycareBackend.Shared.Domain.Repositories;
 
 namespace KidycareBackend.Reviews.Domain.Repositories;
 
 public interface IReviewRepository: IBaseRepository<Review>
 {
-    Task<IEnumerable<Review>> FindByReviewIdAsync(string parentId);
+    Task<IEnumerable<Review>> FindByReviewIdAsync(ParentId parentId);
     
-    Task<Review?> GetReviewById(string reviewId);
+    Task<Review?> GetReviewById(int reviewId);
     
-    Task<Review> GetReviewByBabysitterIdAndParentId(object babysitterId, object parentId);
+    Task<Review> GetReviewByBabysitterIdAndParentId(int babysitterId, int parentId);
     
-    Task<Review> UpdateReview(Review reviewId);
+    Task<Review> UpdateReview(Review review);
     
-    Task DeleteReview(string reviewId);
+    Task DeleteReview(int reviewId);
     
 }

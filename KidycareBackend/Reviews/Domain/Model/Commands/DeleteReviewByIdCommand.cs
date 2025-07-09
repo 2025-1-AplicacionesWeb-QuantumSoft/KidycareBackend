@@ -1,3 +1,3 @@
 ﻿namespace KidycareBackend.Reviews.Domain.Model.Commands;
 
-public record DeleteReviewByIdCommand(string reviewApiKey);
+public record DeleteReviewByIdCommand(int Id);

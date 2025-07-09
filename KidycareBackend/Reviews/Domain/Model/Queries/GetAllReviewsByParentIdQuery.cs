@@ -1,3 +1,3 @@
 ﻿namespace KidycareBackend.Reviews.Domain.Model.Queries;
 
-public record GetAllReviewsByParentIdQuery(string parentId);
+public record GetAllReviewsByParentIdQuery(int parentId);

@@ -7,7 +7,7 @@ public interface IReviewCommandService
 {
     Task<Review> Handle(CreateReviewCommand command);
     
-    Task<Review> Handle(UpdateReviewByIdCommand byIdCommand, string reviewId);
+    Task<Review> Handle(UpdateReviewByIdCommand byIdCommand, int reviewId);
     
     Task<Review> Handle(DeleteReviewByIdCommand byIdCommand);
     

@@ -7,8 +7,7 @@ public class CreateReviewCommandFromResourceAssembler
 {
     public static CreateReviewCommand ToCommandFromResource(
         CreateReviewResource resource) => new CreateReviewCommand(
-        resource.reviewApiKey,
-        resource.reviewId,
+        resource.Id,
         resource.rating,
         resource.comment,
         resource.parentId,

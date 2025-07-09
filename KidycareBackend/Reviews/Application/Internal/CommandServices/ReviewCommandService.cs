@@ -3,16 +3,19 @@
     using KidycareBackend.Reviews.Domain.Repositories;
     using KidycareBackend.Reviews.Domain.Services;
     using KidycareBackend.Shared.Domain.Repositories;
+    using KidycareBackend.Profiles.Interfaces.ACL;
+
     using Microsoft.EntityFrameworkCore;
 
     namespace KidycareBackend.Reviews.Application.Internal.CommandServices;
 
-    public class ReviewCommandService(IReviewRepository reviewRepository, IUnitOfWork unitOfWork) 
+    public class ReviewCommandService(IReviewRepository reviewRepository, IProfilesContextFacade profilesContextFacade, IUnitOfWork unitOfWork) 
         : IReviewCommandService
     {
         
         public async Task<Review> Handle(CreateReviewCommand command)
         {
+            
             var review = await reviewRepository.GetReviewByBabysitterIdAndParentId(command.babysitterId, command.parentId);
             if (review != null)
                 throw new Exception("Review already exists");
@@ -31,41 +34,47 @@
             return review;
         }
 
-        public async Task<Review> Handle(UpdateReviewByIdCommand command, string reviewId)
+        public async Task<Review> Handle(UpdateReviewByIdCommand command, int reviewId)
         {
-            var reviewExisting = await reviewRepository.GetReviewById(reviewId);
-            if (reviewExisting == null)
+            var existingReview = await reviewRepository.GetReviewById(reviewId);
+            if (existingReview == null)
                 throw new Exception("Review not found");
 
             try
             {
                 if (!string.IsNullOrEmpty(command.comment))
                 {
-                    reviewExisting.comment = command.comment;
+                    existingReview.comment = command.comment;
                 }
 
-                reviewExisting.rating = command.rating;
+                if (command.rating > 0)
+                {
+                    existingReview.rating = command.rating;
+                }
 
-                await reviewRepository.UpdateReview(reviewExisting);
+
+                await reviewRepository.UpdateReview(existingReview);
                 await unitOfWork.CompleteAsync();
-                return reviewExisting;
+                return existingReview;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                throw;
+                return null;
             }
         }
 
+        
+
         public async Task<Review> Handle(DeleteReviewByIdCommand command)
         {
-            var review = await reviewRepository.GetReviewById(command.reviewApiKey);
+            var review = await reviewRepository.GetReviewById(command.Id);
             if (review == null)
                 throw new Exception("Review not found");
 
             try
             {
-                await reviewRepository.DeleteReview(review.reviewApiKey);
+                await reviewRepository.DeleteReview(review.Id);
                 await unitOfWork.CompleteAsync();
             }
             catch (Exception)

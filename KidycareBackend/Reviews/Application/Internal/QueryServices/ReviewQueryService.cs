@@ -15,6 +15,6 @@ public class ReviewQueryService(IReviewRepository reviewRepository)
 
     public async Task<Review?> Handle(GetReviewByIdQuery query)
     {
-        return await reviewRepository.GetReviewById(query.reviewId);
+        return await reviewRepository.GetReviewById(query.Id);
     }
 }

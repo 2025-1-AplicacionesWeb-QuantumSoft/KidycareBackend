@@ -3,6 +3,5 @@
 public record UpdateReviewResource(
     int rating,
     string comment,
-    string babysitterId,
     DateTime date
     );

@@ -3,6 +3,5 @@
 public record UpdateReviewByIdCommand(
     int rating,
     string comment,
-    string babysitterId,
     DateTime date
     );

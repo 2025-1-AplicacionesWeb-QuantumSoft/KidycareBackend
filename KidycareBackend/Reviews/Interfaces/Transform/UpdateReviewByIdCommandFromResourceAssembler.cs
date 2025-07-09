@@ -6,12 +6,11 @@ namespace KidycareBackend.Reviews.Interfaces.Transform;
 public class UpdateReviewByIdCommandFromResourceAssembler
 {
     public static UpdateReviewByIdCommand ToCommandFromResource(
-        UpdateReviewResource resource, string reviewApiKey)
+        UpdateReviewResource resource, int Id)
     {
         return new UpdateReviewByIdCommand(
             resource.rating,
             resource.comment,
-            resource.babysitterId,
             resource.date
         );
         

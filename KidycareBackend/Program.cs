@@ -47,7 +47,6 @@ using KidycareBackend.Reviews.Application.Internal.CommandServices;
 using KidycareBackend.Reviews.Application.Internal.QueryServices;
 using KidycareBackend.Reviews.Domain.Repositories;
 using KidycareBackend.Reviews.Domain.Services;
-using KidycareBackend.Reviews.Infrastructure.Repositories;
 using KidycareBackend.Shared.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using KidycareBackend.Shared.Infrastructure.Mediator.Cortex.Configuration;

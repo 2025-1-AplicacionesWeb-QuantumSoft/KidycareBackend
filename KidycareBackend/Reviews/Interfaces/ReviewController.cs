@@ -37,7 +37,7 @@ public class ReviewController : ControllerBase
         var result = await _reviewCommandService.Handle(command);
         if (result is null) return BadRequest();
 
-        return CreatedAtAction(nameof(GetReviewById), new { id = result },
+        return CreatedAtAction(nameof(GetReviewById), new { Id = result },
             ReviewResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
 
@@ -48,9 +48,9 @@ public class ReviewController : ControllerBase
         OperationId = "GetReviewById")]
     [SwaggerResponse(200, "La review fue encontrada", typeof(ReviewResource))]
     [SwaggerResponse(404, "No se encontró la review")]
-    public async Task<ActionResult> GetReviewById(string id)
+    public async Task<ActionResult> GetReviewById(int Id)
     {
-        var query = new GetReviewByIdQuery(id);
+        var query = new GetReviewByIdQuery(Id);
         var result = await _reviewQueryService.Handle(query);
         if (result is null) return NotFound();
 
@@ -58,7 +58,7 @@ public class ReviewController : ControllerBase
         return Ok(resources);
     }
 
-    private async Task<ActionResult> GetAllReviewsByParentId(string parentId)
+    private async Task<ActionResult> GetAllReviewsByParentId(int parentId)
     {
         var query = new GetAllReviewsByParentIdQuery(parentId);
         var result = await _reviewQueryService.Handle(query);
@@ -74,16 +74,16 @@ public class ReviewController : ControllerBase
         OperationId = "GetReviewsFromQuery")]
     [SwaggerResponse(200, "Se encontraron reviews", typeof(IEnumerable<ReviewResource>))]
     public async Task<ActionResult> GetReviewsFromQuery(
-        [FromQuery] string? parentId = null,
-        [FromQuery] string? babysitterId = null)
+        [FromQuery] int? parentId = null,
+        [FromQuery] int? babysitterId = null)
     {
-        if (!string.IsNullOrEmpty(parentId))
-            return await GetAllReviewsByParentId(parentId);
+        if (parentId.HasValue)
+            return await GetAllReviewsByParentId(parentId.Value);
 
-        if (!string.IsNullOrEmpty(babysitterId))
-            return await GetReviewsByBabysitterId(babysitterId);
+        // Puedes agregar lógica similar para babysitterId si lo necesitas
 
         return BadRequest("Debe proporcionar 'parentId' o 'babysitterId'");
+        
     }
     
     [HttpPut("{id}")]
@@ -95,14 +95,14 @@ public class ReviewController : ControllerBase
         "La review fue actualizada exitosamente.", typeof(ReviewResource))]
     [SwaggerResponse(StatusCodes.Status404NotFound,
         "No se encontró la review con el ID especificado.")]
-    public async Task<ActionResult> UpdateReviewById(string id, [FromBody] UpdateReviewResource resource)
+    public async Task<ActionResult> UpdateReviewById(int Id, [FromBody] UpdateReviewResource resource)
     {
-        var getReviewByIdQuery = new GetReviewByIdQuery(id);
+        var getReviewByIdQuery = new GetReviewByIdQuery(Id);
         var result = await _reviewQueryService.Handle(getReviewByIdQuery);
         if (result is null) return NotFound();
 
-        var updateReviewCommand = UpdateReviewByIdCommandFromResourceAssembler.ToCommandFromResource(resource, id);
-        var updatedResult = await _reviewCommandService.Handle(updateReviewCommand, id);
+        var updateReviewCommand = UpdateReviewByIdCommandFromResourceAssembler.ToCommandFromResource(resource, Id);
+        var updatedResult = await _reviewCommandService.Handle(updateReviewCommand, Id);
 
         if (updatedResult is null) return BadRequest();
         var updateResource = ReviewResourceFromEntityAssembler.ToResourceFromEntity(updatedResult);
@@ -118,13 +118,13 @@ public class ReviewController : ControllerBase
     [SwaggerResponse(StatusCodes.Status204NoContent, "La review fue eliminada exitosamente.")]
     [SwaggerResponse(StatusCodes.Status404NotFound, "No se encontró la review con el ID especificado.")]
     
-    public async Task<ActionResult> DeleteReviewById(string id)
+    public async Task<ActionResult> DeleteReviewById(int Id)
     {
-        var getReviewByIdQuery = new GetReviewByIdQuery(id);
+        var getReviewByIdQuery = new GetReviewByIdQuery(Id);
         var result = await _reviewQueryService.Handle(getReviewByIdQuery);
         if (result is null) return NotFound();
 
-        var deleteReviewCommand = new DeleteReviewByIdCommand(id);
+        var deleteReviewCommand = new DeleteReviewByIdCommand(Id);
         var deleteResult = await _reviewCommandService.Handle(deleteReviewCommand);
 
         if (deleteResult is null) return BadRequest();

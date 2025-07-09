@@ -1,5 +1,5 @@
 ﻿namespace KidycareBackend.Reviews.Interfaces.Resources;
 
-public record ReviewResource(string ReviewApiKey, string ReviewId, int Rating, string Comment, string ParentId,
-        string BabysitterId, DateTime Date)
+public record ReviewResource(int Id, int Rating, string Comment, int ParentId,
+        int BabysitterId, DateTime Date)
 ;

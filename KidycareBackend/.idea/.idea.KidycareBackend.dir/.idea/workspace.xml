@@ -10,247 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e47dc1ca-70f2-4bf2-982c-bbf53e2d3192" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.github/workflows/develop_kidycare.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/.idea.KidycareBackend/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/KidycareBackend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/KidycareBackend/CopilotIndices/17.14.698.11175/CodeChunks.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/KidycareBackend/CopilotIndices/17.14.698.11175/SemanticSymbols.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/KidycareBackend/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/KidycareBackend/FileContentIndex/2e49c291-6454-4731-b129-3ba4fb77acb9.vsidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/KidycareBackend/config/applicationhost.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/KidycareBackend/v17/.futdcache.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/KidycareBackend/v17/.suo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/KidycareBackend/v17/DocumentLayout.backup.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/KidycareBackend/v17/DocumentLayout.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/ProjectEvaluation/kidycarebackend.metadata.v9.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/ProjectEvaluation/kidycarebackend.projects.v9.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.vs/ProjectEvaluation/kidycarebackend.strings.v9.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../KidycareBackend.sln.DotSettings.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Application/Internal/CommandServices/UserCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Application/Internal/OutboundServices/IHashingService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Application/Internal/OutboundServices/ITokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Application/Internal/QueryServices/UserQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Domain/Model/Aggregates/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Domain/Model/Commands/SignInCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Domain/Model/Commands/SignUpCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Domain/Model/Queries/GetAllUsersQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Domain/Model/Queries/GetUserByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Domain/Model/Queries/GetUserByUsernameQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Domain/Repositories/IUserRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Domain/Services/IUserCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Domain/Services/IUserQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Infrastructure/Hashing/BCrypt/Services/HashingService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Infrastructure/Persistence/EFC/Configuration/Extensions/ModelBuilderExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Infrastructure/Persistence/EFC/Repositories/UserRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Infrastructure/Pipeline/Middleware/Attributes/AllowAnonymousAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Infrastructure/Pipeline/Middleware/Attributes/AuthorizeAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Infrastructure/Pipeline/Middleware/Components/RequestAuthorizationMiddleware.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Infrastructure/Pipeline/Middleware/Extensions/RequestAuthorizationMiddlewareExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Infrastructure/Tokens/JWT/Configuration/TokenSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Infrastructure/Tokens/JWT/Services/TokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/ACL/IIamContextFacade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/ACL/Services/IamContextFacade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/REST/AuthenticationController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/REST/Resources/AuthenticatedUserResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/REST/Resources/SignInResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/REST/Resources/SignUpResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/REST/Resources/UserResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/REST/Transform/AuthenticatedUserResourceFromEntityAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/REST/Transform/SignInCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/REST/Transform/SignUpCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/REST/Transform/UserResourceFromEntityAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IAM/Interfaces/REST/UsersController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KidycareBackend.csproj.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Application/ACL/CardContextFacade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Application/Internal/CommandServices/CardCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Application/Internal/CommandServices/PaymentCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Application/Internal/QueryServices/CardQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Application/Internal/QueryServices/PaymentQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Aggregates/Card.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Aggregates/CardAudith.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Aggregates/Payment.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Aggregates/PaymentAudith.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Commands/CreateCardCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Commands/CreatePaymentCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Commands/DeleteCardByIdCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Commands/UpdateCardByIdCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Queries/GetAllCardByBabysitterIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Queries/GetAllCardByParentIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Queries/GetAllCardQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Queries/GetAllPaymentByParentIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Queries/GetAllPaymentQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Queries/GetCardByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/Queries/GetPaymentByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/ValueObjects/ECvv.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/ValueObjects/ExpirationDateCard.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/ValueObjects/PaymentStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Model/ValueObjects/RCardNumber.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Repositories/ICardRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Repositories/IPaymentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Services/ICardCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Services/ICardQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Services/IPaymentCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Domain/Services/IPaymentQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Infrastruture/Persistence/EFC/Configuration/Extensions/ModelBuilderExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Infrastruture/Persistence/EFC/Repositories/CardRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Infrastruture/Persistence/EFC/Repositories/PaymentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/ACL/ICardsContextFacade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/CardsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/PaymentsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/Resources/CardResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/Resources/CreateCardResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/Resources/CreatePaymentResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/Resources/PaymentResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/Resources/UpdateCardResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/Transform/CardResourceFromEntityAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/Transform/CreateCardCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/Transform/CreatePaymentCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/Transform/PaymentResourceFromEntityAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pay/Interfaces/REST/Transform/UpdateCardByIdCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Application/ACL/ProfilesContextFacade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Application/Internal/CommandServices/BabysitterCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Application/Internal/CommandServices/ParentCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Application/Internal/QueryServices/BabysitterQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Application/Internal/QueryServices/ParentQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Aggregates/Babysitter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Aggregates/BabysitterAudit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Aggregates/Parent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Aggregates/ParentAudit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Commands/CreateBabysitterCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Commands/CreateParentCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Commands/UpdateBabysitterCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Commands/UpdateParentCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Queries/GetAllBabysitterQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Queries/GetBabysitterByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Queries/GetBabysitterByUserIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Queries/GetParentByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/Queries/GetParentByUserIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/ValueObjects/EmailAddress.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/ValueObjects/PersonName.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/ValueObjects/RoleType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Model/ValueObjects/UserId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Repositories/IBabysitterRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Repositories/IParentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Services/IBabysitterCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Services/IBabysitterQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Services/IParentCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Domain/Services/IParentQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Infrastructure/Persistence/EFC/Configuration/Extensions/ModelBuilderExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Infrastructure/Persistence/EFC/Repositories/BabysitterRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Infrastructure/Persistence/EFC/Repositories/ParentRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/ACL/IProfilesContextFacade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/REST/BabysitterController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/REST/ParentController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/REST/Resources/BabysitterResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/REST/Resources/CreateBabysitterResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/REST/Resources/CreateParentResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/REST/Resources/ParentResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/REST/Transform/BabysitterResourceFromEntityAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/REST/Transform/CreateBabysitterCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/REST/Transform/CreateParentCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Profiles/Interfaces/REST/Transform/ParentResourceFromEntityAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Application/Internal/CommandServices/ProfileCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Application/Internal/QueryServices/ProfileQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Domain/Model/Aggregates/Profile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Domain/Model/Commands/CreateProfileCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Domain/Model/Commands/UpdateProfileCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Domain/Model/Queries/GetAllProfileByProfileApiKeyQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Domain/Model/Queries/GetProfileByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Domain/Model/Queries/GetProfileByProfileApiKeyAndSourceIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Domain/Repositories/IProfileRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Domain/Services/IProfileCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Domain/Services/IProfileQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Infrastructure/Persistence/EFC/Configuration/Extensions/ModelBuilderExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Infrastructure/Persistence/EFC/Repositories/ProfileRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Interfaces/ProfileController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Interfaces/Resources/CreateProfileResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Interfaces/Resources/ProfileResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Interfaces/Transform/CreateProfileCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RegistrationServices/Interfaces/Transform/ProfileResourceFromEntityAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Application/ACL/ReservationContextFacade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Application/Internal/CommandServices/ReservationCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Application/Internal/QueryServices/ReservationQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/Aggregates/Reservation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/Commands/CreateReservationCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/Commands/DeleteReservationByIdCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/Commands/UpdateReservationByIdCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/Queries/GetAllReservationByBabysitterIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/Queries/GetAllReservationByParentIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/Queries/GetAllReservationsQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/Queries/GetReservationByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/ValueObjects/BabysitterId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/ValueObjects/NotificationId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/ValueObjects/ParentId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/ValueObjects/ReservationDate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/ValueObjects/ReservationId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Model/ValueObjects/ReservationStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Repositories/IReservationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Services/IReservationCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Domain/Services/IReservationQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Infrastructure/Persistence/EFC/Configuration/Extensions/ModelBuilderExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Infrastructure/Persistence/EFC/Repositories/ReservationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Interfaces/ACL/IReservationContextFacade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Interfaces/ReservationController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Interfaces/Resources/CreateReservationResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Interfaces/Resources/ReservationResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Interfaces/Resources/UpdateReservationResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Interfaces/Transform/CreateReservationCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Interfaces/Transform/ReservationResourceFromEntityAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservations/Interfaces/Transform/UpdateReservationByIdCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reviews/Infrastructure/Persistence/EFC/Configuration/Extensions/MolderBuilderExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shared/Infrastructure/Mediator/Cortex/Configuration/LoggingCommandBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appsettings.Production.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/Debug/net9.0/appsettings.Production.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/Debug/net9.0/rbcswa.dswa.cache.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/Debug/net9.0/staticwebassets/msbuild.build.KidycareBackend.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.KidycareBackend.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.KidycareBackend.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../compose.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KidycareBackend.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KidycareBackend.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KidycareBackend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/KidycareBackend.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KidycareBackend.http" beforeDir="false" afterPath="$PROJECT_DIR$/KidycareBackend.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Application/Internal/CommandServices/ReviewCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Application/Internal/CommandServices/ReviewCommandService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Application/Internal/QueryServices/ReviewQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Application/Internal/QueryServices/ReviewQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Model/Aggregates/Review.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Model/Aggregates/Review.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Model/Commands/CreateReviewCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Model/Commands/CreateReviewCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Model/Commands/DeleteReviewByIdCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Model/Commands/DeleteReviewByIdCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Model/Commands/UpdateReviewByIdCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Model/Commands/UpdateReviewByIdCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Model/Queries/GetAllReviewsByParentIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Model/Queries/GetAllReviewsByParentIdQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Model/Queries/GetReviewByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Model/Queries/GetReviewByIdQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Repositories/IReviewRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Repositories/IReviewRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reviews/Domain/Services/IReviewCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Domain/Services/IReviewCommandService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reviews/Infrastructure/Persistence/EFC/Repositories/ReviewRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Infrastructure/Persistence/EFC/Repositories/ReviewRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reviews/Interfaces/ReviewController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Reviews/Interfaces/ReviewController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.staticwebassets.endpoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/KidycareBackend.staticwebassets.endpoints.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/KidycareBackend.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/ref/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/ref/KidycareBackend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/refint/KidycareBackend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/refint/KidycareBackend.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmrazor.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/rjsmrazor.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/rpswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/rpswa.dswa.cache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/staticwebassets.build.endpoints.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/staticwebassets.build.endpoints.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/KidycareBackend.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/KidycareBackend.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/KidycareBackend.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/obj/KidycareBackend.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,22 +34,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/joaqu/MiPC/UPC/5.1 CICLO/Aplicaciones web/TF/KidycareBackend/KidycareBackend/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/joaqu/MiPC/UPC/5.1 CICLO/Aplicaciones web/TF/KidycareBackend/KidycareBackend/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Reviews/Application/Internal/CommandServices/ReviewCommandService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Reviews/Domain/Model/Aggregates/Review.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Reviews/Domain/Model/Commands/CreateReviewCommand.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Reviews/Domain/Model/Commands/UpdateReviewByIdCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Reviews/Application/Internal/CommandServices/ReviewCommandService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Reviews/Domain/Model/Aggregates/Review.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Reviews/Domain/Model/Commands/CreateReviewCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Reviews/Domain/Model/Commands/UpdateReviewByIdCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/joaqu/MiPC/UPC/5.1 CICLO/Aplicaciones web/TF/KidycareBackend/KidycareBackend/Reviews/Interfaces/ReviewController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Reviews/Interfaces/ReviewController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Reviews/Interfaces/ReviewController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/joaqu/MiPC/UPC/5.1 CICLO/Aplicaciones web/TF/KidycareBackend/KidycareBackend/Reviews/Interfaces/ReviewController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Reviews/Interfaces/Transform/ReviewResourceFromEntityAssembler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Reviews/Interfaces/Transform/ReviewResourceFromEntityAssembler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/joaqu/MiPC/UPC/5.1 CICLO/Aplicaciones web/TF/KidycareBackend/KidycareBackend/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/joaqu/MiPC/UPC/5.1 CICLO/Aplicaciones web/TF/KidycareBackend/KidycareBackend/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Shared/Infrastructure/Persistence/EFC/Repositories/UnitOfWork.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/appsettings.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/Infrastructure/Persistence/EFC/Repositories/UnitOfWork.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/appsettings.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -291,18 +64,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging feature/bc-review-system.V.0.1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/bc-review-system.V.0.1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.KidycareBackend: http">
     <configuration name="KidycareBackend: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/KidycareBackend.csproj" />

@@ -1,4 +1,5 @@
-﻿using KidycareBackend.Reviews.Domain.Model.Aggregates;
+﻿using KidycareBackend.Reservations.Domain.Model.ValueObjects;
+using KidycareBackend.Reviews.Domain.Model.Aggregates;
 using KidycareBackend.Reviews.Domain.Repositories;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -8,24 +9,23 @@ namespace KidycareBackend.Reviews.Infrastructure.Persistence.EFC.Repositories;
 
 public class ReviewRepository(AppDbContext context) : BaseRepository<Review>(context), IReviewRepository
 {
-    public async Task<IEnumerable<Review>> FindByReviewIdAsync(string parentId)
+    public async Task<IEnumerable<Review>> FindByReviewIdAsync(ParentId parentId)
     {
         return await Context.Set<Review>().
-            Where(r => r.parentId == parentId).
+            Where(r => r.ParentId==parentId).
             ToListAsync();
     }
     
-    
-    public async Task<Review?> GetReviewById(string reviewId)
+    public async Task<Review?> GetReviewById(int reviewId)
     {
         return await Context.Set<Review>().
-            FirstOrDefaultAsync(r => r.reviewApiKey == reviewId);//necesito ayudin 
+            FirstOrDefaultAsync(r => r.Id == reviewId); 
     }
     
-    public async Task<Review> GetReviewByBabysitterIdAndParentId(object babysitterId, object parentId)
+    public async Task<Review> GetReviewByBabysitterIdAndParentId(int babysitterId, int parentId)
     {
         return await Context.Set<Review>().
-            FirstOrDefaultAsync(r => r.babysitterId == babysitterId && r.parentId == parentId);
+            FirstOrDefaultAsync(r => r.BabysitterId == babysitterId && r.ParentId == parentId);
     }
 
     public async Task<Review> UpdateReview(Review reviewId)
@@ -35,7 +35,7 @@ public class ReviewRepository(AppDbContext context) : BaseRepository<Review>(con
         return reviewId;
     }
     
-    public async Task DeleteReview(string reviewId)
+    public async Task DeleteReview(int reviewId)
     {
         Context.Set<Review>().Remove(await GetReviewById(reviewId));
     }
