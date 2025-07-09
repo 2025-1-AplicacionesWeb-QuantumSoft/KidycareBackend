@@ -13,6 +13,7 @@ using KidycareBackend.IAM.Infrastructure.Tokens.JWT.Configuration;
 using KidycareBackend.IAM.Infrastructure.Tokens.JWT.Services;
 using KidycareBackend.IAM.Interfaces.ACL;
 using KidycareBackend.IAM.Interfaces.ACL.Services;
+using KidycareBackend.Pay.Application.ACL;
 using KidycareBackend.Reservations.Application.Internal.CommandServices;
 using KidycareBackend.Reservations.Application.Internal.QueryServices;
 using KidycareBackend.Reservations.Domain.Repositories;
@@ -23,6 +24,7 @@ using KidycareBackend.Pay.Application.Internal.QueryServices;
 using KidycareBackend.Pay.Domain.Repositories;
 using KidycareBackend.Pay.Domain.Services;
 using KidycareBackend.Pay.Infrastruture.Persistence.EFC.Repositories;
+using KidycareBackend.Pay.Interfaces.ACL;
 using KidycareBackend.Profiles.Application.ACL;
 using KidycareBackend.Profiles.Application.Internal.CommandServices;
 using KidycareBackend.Profiles.Application.Internal.QueryServices;
@@ -140,7 +142,7 @@ builder.Services.AddControllers(options =>
  builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
  builder.Services.AddScoped<IPaymentCommandService, PaymentCommandService>();
  builder.Services.AddScoped<IPaymentQueryService, PaymentQueryService>();
-
+ builder.Services.AddScoped<ICardsContextFacade, CardContextFacade>();
 // Profile bounded context
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
