@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Jorge\\app web\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj": {}
+    "C:\\Users\\USUARIO\\Desktop\\BackendApp\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj": {}
   },
   "projects": {
-    "D:\\Jorge\\app web\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj": {
+    "C:\\Users\\USUARIO\\Desktop\\BackendApp\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Jorge\\app web\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\BackendApp\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
         "projectName": "KidycareBackend",
-        "projectPath": "D:\\Jorge\\app web\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
-        "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-        "outputPath": "D:\\Jorge\\app web\\KidycareBackend\\KidycareBackend\\obj\\",
+        "projectPath": "C:\\Users\\USUARIO\\Desktop\\BackendApp\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\BackendApp\\KidycareBackend\\KidycareBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -104,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\jorge\\.dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\USUARIO\\.dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
