@@ -31,9 +31,12 @@ public class ReservationRepository(AppDbContext Context)
 
     public async Task<Reservation?> UpdateReservation(Reservation reservation)
     {
-        Context.Set<Reservation>().Update(reservation);
+        var trackedEntity = await Context.Set<Reservation>().FindAsync(reservation.Id);
+        if (trackedEntity == null) return null;
+
+        Context.Entry(trackedEntity).CurrentValues.SetValues(reservation);
         await Context.SaveChangesAsync();
-        return reservation;
+        return trackedEntity;
     }
 
     public async Task DeleteReservation(int reservationId)

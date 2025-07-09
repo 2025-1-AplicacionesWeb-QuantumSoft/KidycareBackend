@@ -26,7 +26,7 @@ public class ReservationController(
         "The reservation was created.", typeof(ReservationResource))]
     [SwaggerResponse(400, 
         "The reservation was not created.")]
-    public async Task<ActionResult> CreateFavoriteSource([FromBody] CreateReservationResource resource)
+    public async Task<ActionResult> CreateReservationSource([FromBody] CreateReservationResource resource)
     {
         var createReservationCommand =
             CreateReservationCommandFromResourceAssembler.ToCommandFromResource(resource);
@@ -91,7 +91,6 @@ public class ReservationController(
         return Ok(resources);
     }
     
-    
     [HttpPut("{id}")]
     [SwaggerOperation(
         Summary = "Update a reservation by ID",
@@ -101,17 +100,17 @@ public class ReservationController(
         "The reservation was successfully updated.", typeof(ReservationResource))]
     [SwaggerResponse(StatusCodes.Status404NotFound,
         "The reservation with the specified ID was not found.")]
-    public async Task<ActionResult> UpdateReservationById(int id)
+    public async Task<ActionResult> UpdateReservationById([FromBody] UpdateReservationResource updateResource,int id)
     {
         var getReservationByIdQuery = new GetReservationByIdQuery(id);
         var result = await reservationQueryService.handle(getReservationByIdQuery);
         if (result is null) return NotFound();
-        var updateReservationCommand = new UpdateReservationByIdCommand(result);
-        var updatedResult = await reservationCommandService.handle(updateReservationCommand);
+        var updatedReservationCommand = UpdateReservationByIdCommandFromResourceAssembler.ToCommandFromResource(updateResource, id);
+        var updatedResult = await reservationCommandService.handle(updatedReservationCommand);
         
         if (updatedResult is null) return BadRequest();
-        var resource = ReservationResourceFromEntityAssembler.ToResourceFromEntity(updatedResult);
-        return Ok(resource);
+        var updatedResource = ReservationResourceFromEntityAssembler.ToResourceFromEntity(updatedResult);
+        return Ok(updatedResource);
     }
     
     [HttpDelete("{id}")]

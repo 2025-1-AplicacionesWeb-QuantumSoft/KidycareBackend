@@ -7,6 +7,12 @@ public record CreateReservationCommand(
     ParentId ParentId,
     ReservationDate StartTime,
     ReservationDate EndTime,
+    string Address,
+    string Frequency,
+    string ChildName,
+    int ChildAge,
+    string SpecialNeeds,
+    string AdditionalInfo,
     ReservationStatus Status,
     NotificationId NotificationId,
     DateTime CreatedAt

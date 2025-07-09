@@ -50,7 +50,12 @@ public static class ModelBuilderExtensions
 
             entity.Property(r => r.StartTime).HasConversion(reservationDateConverter).IsRequired();
             entity.Property(r => r.EndTime).HasConversion(reservationDateConverter).IsRequired();
-
+            entity.Property(r => r.address).IsRequired();
+            entity.Property(r => r.frequency).IsRequired();
+            entity.Property(r => r.childName).IsRequired();
+            entity.Property(r => r.childAge).IsRequired();
+            entity.Property(r => r.specialNeeds).IsRequired();
+            entity.Property(r => r.additionalInfo);
             entity.Property(r => r.Status).HasConversion(reservationStatusConverter).IsRequired();
             entity.Property(r => r.CreatedAt).IsRequired();
         });
