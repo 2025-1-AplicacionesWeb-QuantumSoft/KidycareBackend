@@ -247,4 +247,3 @@ D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\S
 D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
 D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\u\aplicaciones web\backend\KidycareBackend\KidycareBackend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

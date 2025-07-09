@@ -11,8 +11,8 @@ public class UpdateReservationByIdCommandFromResourceAssembler
     {
         return new UpdateReservationByIdCommand(
             id,
-            resource.parentId,
             resource.babysitterId,
+            resource.parentId,
             resource.startTime,
             resource.endTime,
             resource.address,

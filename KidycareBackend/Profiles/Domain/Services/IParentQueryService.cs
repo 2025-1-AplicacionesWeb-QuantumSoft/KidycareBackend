@@ -7,5 +7,5 @@ public interface IParentQueryService
 {
     Task<Parent?> Handle(GetParentByIdQuery query);
     
-    Task<Parent> Handle(GetParentByUserIdQuery query);
+    Task<Parent?> Handle(GetParentByUserIdQuery query);
 }

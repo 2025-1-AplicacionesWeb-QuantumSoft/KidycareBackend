@@ -55,4 +55,24 @@ public class ParentController(
         return Ok(resource);
     }
     
+    [HttpGet("user/{userId}")]
+    [SwaggerOperation(
+        Summary = "Get a Parent by userId",
+        Description = "Retrieves a specific Parent by userId using its unique identifier.",
+        OperationId = "GetParentByUserId")]
+    [SwaggerResponse(StatusCodes.Status200OK, 
+        "The Parent was found and returned successfully.", typeof(ParentResource))]
+    [SwaggerResponse(StatusCodes.Status404NotFound,
+        "The Parent with the specified userId was not found.")]
+    public async Task<ActionResult> GetParentByUserId(int userId)
+    {
+        var getParentByUserIdQuery = new GetParentByUserIdQuery(userId);
+        var parent = await parentQueryService.Handle(getParentByUserIdQuery);
+        if (parent is null)
+            return NotFound();
+        var resource =
+            ParentResourceFromEntityAssembler.ToResourceFromEntity(parent);
+        return Ok(resource);
+    }
+
 }

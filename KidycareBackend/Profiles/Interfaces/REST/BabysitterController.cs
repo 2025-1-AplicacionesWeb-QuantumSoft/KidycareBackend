@@ -35,6 +35,26 @@ public class BabysitterController(
             BabysitterResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
     
+    [HttpGet("user/{userId}")]
+    [SwaggerOperation(
+        Summary = "Get a Babysitter by userId",
+        Description = "Retrieves a specific Babysitter by userId using its unique identifier.",
+        OperationId = "GetBabysitterByUserId")]
+    [SwaggerResponse(StatusCodes.Status200OK, 
+        "The Babysitter was found and returned successfully.", typeof(BabysitterResource))]
+    [SwaggerResponse(StatusCodes.Status404NotFound,
+        "The Babysitter with the specified userId was not found.")]
+    public async Task<ActionResult> GetBabysitterByUserId(int userId)
+    {
+        var getBabysitterByUserIdQuery = new GetBabysitterByUserIdQuery(userId);
+        var babysitter = await babysitterQueryService.Handle(getBabysitterByUserIdQuery);
+        if (babysitter is null)
+            return NotFound();
+        var resource =
+            BabysitterResourceFromEntityAssembler.ToResourceFromEntity(babysitter);
+        return Ok(resource);
+    }
+    
     [HttpGet("{id}")]
     [SwaggerOperation(
         Summary = "Get a Babysitter by ID",
