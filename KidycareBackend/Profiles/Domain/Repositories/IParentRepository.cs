@@ -6,8 +6,8 @@ namespace KidycareBackend.Profiles.Domain.Repositories;
 
 public interface IParentRepository: IBaseRepository<Parent>
 {
-    Task<Parent?> FindByUserIdAsync(int userId);
-    Task<Parent?> Handle(GetParentByIdQuery query);
-    Task<Parent?> Handle(GetParentByUserIdQuery query);
-    Task<bool> ExistsByUserIdAsync(int userId);
+    Task<Parent?> GetParentById(int parentId);
+    Task<Parent?> GetParentByUserId(int userId);
+    Task<Parent?> UpdateParent(Parent parent);
+
 }

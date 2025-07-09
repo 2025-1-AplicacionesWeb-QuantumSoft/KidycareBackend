@@ -3,16 +3,17 @@ using KidycareBackend.Profiles.Interfaces.REST.Resources;
 
 namespace KidycareBackend.Profiles.Interfaces.REST.Transform;
 
-public static class CreateParentCommandFromResourceAssembler
+public static class UpdateParentCommandFromResourceAssembler
 {
-    public static CreateParentCommand ToCommandFromResource(CreateParentResource resource) =>
-        new CreateParentCommand(
-            resource.userId,
+    public static UpdateParentCommand ToCommandFromResource(UpdateParentResource resource, int id)
+    {
+        return new UpdateParentCommand(
+            resource.address,
             resource.name,
             resource.phone,
-            resource.address,
             resource.childrenCount,
             resource.preferences,
             resource.city
         );
+    }
 }

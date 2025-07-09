@@ -16,28 +16,54 @@ public class BabysitterCommandService(IBabysitterRepository babysitterRepository
         return babysitter;
     }
 
-    public async Task<Babysitter?> Handle(UpdateBabysitterCommand command)
+    public async Task<Babysitter> Handle(UpdateBabysitterCommand command, int babysitterId)
     {
-        var babysitter = await babysitterRepository.FindByIdAsync(command.Id);
-        if (babysitter == null)
-            return null;
+        var babysitterExisting = await babysitterRepository.GetBabysitterId(babysitterId);
+        if (babysitterExisting == null)
+            throw new Exception("Card not found");
+        
+        try
+        {
+            if (!string.IsNullOrEmpty(command.Description))
+                babysitterExisting.description = command.Description;
 
-        babysitter = new Babysitter(
-            command.UserId, 
-            command.Name, 
-            command.Phone, 
-            command.Description, 
-            command.Languages, 
-            command.Rating,
-            command.Location, 
-            command.AccountBank, 
-            command.BankName, 
-            command.TypeAccountBank, 
-            command.Dni, 
-            command.ExperienceLevel
-            );
-        babysitterRepository.Update(babysitter);
-        await unitOfWork.CompleteAsync();
-        return babysitter;
+            if (!string.IsNullOrEmpty(command.Name))
+                babysitterExisting.name = command.Name;
+
+            if (!string.IsNullOrEmpty(command.Phone))
+                babysitterExisting.phone = command.Phone;
+
+            if (!string.IsNullOrEmpty(command.Languages))
+                babysitterExisting.languages = command.Languages;
+            
+            if (command.Rating != 0)
+             babysitterExisting.rating = command.Rating;
+
+            if (!string.IsNullOrEmpty(command.Location))
+                babysitterExisting.location = command.Location;
+
+            if (!string.IsNullOrEmpty(command.AccountBank))
+                babysitterExisting.accountBank = command.AccountBank;
+
+            if (!string.IsNullOrEmpty(command.BankName))
+                babysitterExisting.bankName = command.BankName;
+
+            if (!string.IsNullOrEmpty(command.TypeAccountBank))
+                babysitterExisting.typeAccountBank = command.TypeAccountBank;
+
+            if (!string.IsNullOrEmpty(command.Dni))
+                babysitterExisting.dni = command.Dni;
+            
+            await babysitterRepository.UpdateBabysitter(babysitterExisting);
+            await unitOfWork.CompleteAsync();
+            return babysitterExisting;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+
     }
+
 }

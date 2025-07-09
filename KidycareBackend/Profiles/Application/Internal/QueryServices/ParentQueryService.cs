@@ -15,6 +15,11 @@ public class ParentQueryService(IParentRepository parentRepository)
 
     public async Task<Parent?> Handle(GetParentByUserIdQuery query)
     {
-        return await parentRepository.FindByUserIdAsync(query.UserId);
+        return await parentRepository.GetParentByUserId(query.UserId);
+    }
+
+    public async Task<IEnumerable<Parent>> Handle(GetAllParentsQuery query)
+    {
+        return await parentRepository.ListAsync();
     }
 }

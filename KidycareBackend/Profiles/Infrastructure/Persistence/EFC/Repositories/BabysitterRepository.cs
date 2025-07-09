@@ -2,31 +2,34 @@
 using KidycareBackend.Profiles.Domain.Model.Queries;
 using KidycareBackend.Profiles.Domain.Repositories;
 using KidycareBackend.Reservations.Domain.Model.Aggregates;
+using KidycareBackend.Reservations.Domain.Model.ValueObjects;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Configuration;
 using KidycareBackend.Shared.Infrastructure.Persistence.EFC.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace KidycareBackend.Profiles.Infrastructure.Persistence.EFC.Repositories;
 
-public class BabysitterRepository(AppDbContext Context) 
-    : BaseRepository<Babysitter>(Context), IBabysitterRepository
+public class BabysitterRepository(AppDbContext context) 
+    : BaseRepository<Babysitter>(context), IBabysitterRepository
 {
-    public Task<Babysitter?> FindByUserIdAsync(int userId)
+    public async Task<Babysitter?> GetBabysitterId(int babysitterId)
     {
-        throw new NotImplementedException();
+        return await Context.Set<Babysitter>().FirstOrDefaultAsync(b=>b.id == babysitterId);
     }
 
-    public Task<Babysitter?> Handle(GetBabysitterByIdQuery query)
+    public async Task<Babysitter?> GetBabysitterByUserIdQuery(int userId)
     {
-        throw new NotImplementedException();
+        return await Context.Set<Babysitter>().Where(b=>b.UserId==userId).FirstOrDefaultAsync();;
     }
 
-    public Task<Babysitter?> Handle(GetBabysitterByUserIdQuery query)
+    public async Task<Babysitter?> UpdateBabysitter(Babysitter babysitter)
     {
-        throw new NotImplementedException();
+        var trackedEntity = await Context.Set<Babysitter>().FindAsync(babysitter.id);
+        if (trackedEntity == null) return null;
+        
+        Context.Entry(trackedEntity).CurrentValues.SetValues(babysitter);
+        await Context.SaveChangesAsync();
+        return trackedEntity;
     }
-
-    public Task<bool> ExistsByUserIdAsync(int userId)
-    {
-        throw new NotImplementedException();
-    }
+    
 }

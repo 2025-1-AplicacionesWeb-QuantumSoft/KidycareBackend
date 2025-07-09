@@ -16,31 +16,41 @@ public class ParentCommandService(IParentRepository parentRepository, IUnitOfWor
         return parent;
     }
 
-    public async Task<Parent?> Handle(UpdateParentCommand command)
+    public async Task<Parent> Handle(UpdateParentCommand command, int parentId)
     {
-        var parent = await parentRepository.FindByIdAsync(command.Id);
-        if (parent == null)
-            throw new Exception("Parent not found");
-
-        parent = new Parent(
-            command.UserId,
-            command.Address,
-            command.Name,
-            command.Phone,
-            command.ChildrenCount,
-            command.Preferences,
-            command.City
-        );
+        var parentExisting = await parentRepository.GetParentById(parentId);
+        if (parentExisting == null)
+            throw new Exception("Card not found");
+        
         try
         {
-            parentRepository.Update(parent);
+            if (!string.IsNullOrEmpty(command.Address))
+                parentExisting.address = command.Address;
+
+            if (!string.IsNullOrEmpty(command.Name))
+                parentExisting.name = command.Name;
+
+            if (!string.IsNullOrEmpty(command.Phone))
+                parentExisting.phone = command.Phone;
+
+            if (command.ChildrenCount != 0)
+                parentExisting.childrenCount = command.ChildrenCount;
+
+            if (!string.IsNullOrEmpty(command.Preferences))
+                parentExisting.preferences = command.Preferences;
+
+            if (!string.IsNullOrEmpty(command.City))
+                parentExisting.city = command.City;
+            
+            await parentRepository.UpdateParent(parentExisting);
             await unitOfWork.CompleteAsync();
+            return parentExisting;
         }
         catch (Exception e)
         {
-            return null;
+            Console.WriteLine(e);
+            throw;
         }
-        return parent;
-        
     }
+
 }
