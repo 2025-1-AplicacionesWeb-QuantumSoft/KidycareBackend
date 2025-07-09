@@ -8,9 +8,9 @@ public class Review
 
     public string reviewId { get; private set; } //que el nombre coincida con el front 
 
-    public int rating { get; private set; } //
+    public int rating { get;  set; } //
     
-    public string comment { get; private set; } //
+    public string comment { get;  set; } //
     
     public string parentId { get; private set; } //
     
@@ -39,4 +39,15 @@ public class Review
         babysitterId = command.babysitterId;
         date = command.date;
     }
+    
+    public void UpdateReview(CreateReviewCommand command)
+    {
+        rating = command.rating;
+        comment = command.comment;
+        parentId = command.parentId;
+        babysitterId = command.babysitterId;
+        date = command.date;
+    }
+    
+    
 }

@@ -84,6 +84,30 @@ public class ReviewController : ControllerBase
         return BadRequest("Debe proporcionar 'parentId' o 'babysitterId'");
     }
     
+    [HttpPut("{id}")]
+    [SwaggerOperation(
+        Summary = "Actualiza una review por ID",
+        Description = "Actualiza una review usando su identificador único.",
+        OperationId = "UpdateReviewById")]
+    [SwaggerResponse(StatusCodes.Status200OK, 
+        "La review fue actualizada exitosamente.", typeof(ReviewResource))]
+    [SwaggerResponse(StatusCodes.Status404NotFound,
+        "No se encontró la review con el ID especificado.")]
+    public async Task<ActionResult> UpdateReviewById(string id, [FromBody] UpdateReviewResource resource)
+    {
+        var getReviewByIdQuery = new GetReviewByIdQuery(id);
+        var result = await _reviewQueryService.Handle(getReviewByIdQuery);
+        if (result is null) return NotFound();
+
+        var updateReviewCommand = UpdateReviewByIdCommandFromResourceAssembler.ToCommandFromResource(resource, id);
+        var updatedResult = await _reviewCommandService.Handle(updateReviewCommand, id);
+
+        if (updatedResult is null) return BadRequest();
+        var updateResource = ReviewResourceFromEntityAssembler.ToResourceFromEntity(updatedResult);
+        return Ok(updateResource);
+    }
+    
+    
     [HttpDelete("{id}")]
     [SwaggerOperation(
         Summary = "Elimina una review por ID",

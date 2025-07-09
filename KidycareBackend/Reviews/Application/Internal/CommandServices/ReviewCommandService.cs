@@ -36,9 +36,25 @@
             var reviewExisting = await reviewRepository.GetReviewById(reviewId);
             if (reviewExisting == null)
                 throw new Exception("Review not found");
-            
-            
 
+            try
+            {
+                if (!string.IsNullOrEmpty(command.comment))
+                {
+                    reviewExisting.comment = command.comment;
+                }
+
+                reviewExisting.rating = command.rating;
+
+                await reviewRepository.UpdateReview(reviewExisting);
+                await unitOfWork.CompleteAsync();
+                return reviewExisting;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public async Task<Review> Handle(DeleteReviewByIdCommand command)

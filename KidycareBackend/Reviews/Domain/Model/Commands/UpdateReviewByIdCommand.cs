@@ -1,8 +1,8 @@
 ﻿namespace KidycareBackend.Reviews.Domain.Model.Commands;
 
-public abstract record UpdateReviewByIdCommand(
-    string rating,
+public record UpdateReviewByIdCommand(
+    int rating,
     string comment,
     string babysitterId,
-    string date
+    DateTime date
     );
