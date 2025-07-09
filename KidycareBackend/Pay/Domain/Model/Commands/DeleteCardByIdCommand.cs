@@ -1,3 +1,3 @@
 ﻿namespace KidycareBackend.Pay.Domain.Model.Commands;
 
-public record DeleteCardByIdCommand(int Id);
+public record DeleteCardByIdCommand(long Id);

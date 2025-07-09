@@ -1,9 +1,11 @@
 ﻿namespace KidycareBackend.Pay.Domain.Model.Commands;
 
 public record CreateCardCommand(
-    int UserId, 
-    string CardNumber,
+    int? ParentId,          
+    int? BabysitterId,  
+    string NumberCard,
     string CardHolder,
-    string Cvv,
-    string ExpirationDate
+    int code,
+    int Year,
+    int Month   
     );

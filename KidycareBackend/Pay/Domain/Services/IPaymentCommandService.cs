@@ -1,5 +1,5 @@
-﻿using KidycareBackend.Pay.Domain.Model.Commands;
-using KidycareBackend.Pay.Domain.Model.Entities;
+﻿using KidycareBackend.Pay.Domain.Model.Aggregates;
+using KidycareBackend.Pay.Domain.Model.Commands;
 
 namespace KidycareBackend.Pay.Domain.Services;
 

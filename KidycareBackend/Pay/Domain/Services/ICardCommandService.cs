@@ -7,6 +7,7 @@ public interface ICardCommandService
 {
     Task<Card?> Handle(CreateCardCommand command);
     Task<bool> Handle(DeleteCardByIdCommand byIdCommand);
-    Task<Card> Handle(UpdateCardByIdCommand byIdCommand);
+    Task<Card> Handle(UpdateCardByIdCommand command, long cardId);
+
     
 }
