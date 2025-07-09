@@ -3,14 +3,44 @@ using KidycareBackend.Pay.Domain.Model.Commands;
 using KidycareBackend.Pay.Domain.Model.ValueObjects;
 using KidycareBackend.Pay.Domain.Repositories;
 using KidycareBackend.Pay.Domain.Services;
+using KidycareBackend.Profiles.Interfaces.ACL;
 using KidycareBackend.Shared.Domain.Repositories;
 
 namespace KidycareBackend.Pay.Application.Internal.CommandServices;
 
-public class CardCommandService(ICardRepository cardRepository, IUnitOfWork unitOfWork): ICardCommandService
+public class CardCommandService(ICardRepository cardRepository, IProfilesContextFacade profilesContextFacade, IUnitOfWork unitOfWork): ICardCommandService
 {
     public async Task<Card?> Handle(CreateCardCommand command)
     {
+        // Validación: Solo uno de ParentId o BabysitterId debe ser no nulo
+        if (command.ParentId.HasValue && command.BabysitterId.HasValue)
+        {
+            throw new InvalidOperationException("Only one of ParentId or BabysitterId can be provided. este mensaje es de CardCOmmandService");
+        }
+
+        // Validación: Al menos uno de ParentId o BabysitterId debe ser no nulo
+        if (!command.ParentId.HasValue && !command.BabysitterId.HasValue)
+        {
+            throw new InvalidOperationException("Either ParentId or BabysitterId must be provided.");
+        }
+        
+        if (command.ParentId.HasValue)
+        {
+            var parentExists = await profilesContextFacade.ExistsParentWithIdAsync(command.ParentId.Value);
+            if (!parentExists)
+            {
+                throw new InvalidOperationException("The provided ParentId does not exist.");
+            }
+        }
+        else if (command.BabysitterId.HasValue)
+        {
+            var babysitterExists = await profilesContextFacade.ExistsBabysitterWithIdAsync(command.BabysitterId.Value);
+            if (!babysitterExists)
+            {
+                throw new InvalidOperationException("The provided BabysitterId does not exist.");
+            }
+        }
+        
         var card = new Card(command);
         try
         {
@@ -20,8 +50,8 @@ public class CardCommandService(ICardRepository cardRepository, IUnitOfWork unit
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            Console.WriteLine($"Error creating card: {e.Message}");
+            throw new Exception("An error occurred while creating the card.", e);
         }
     }
 

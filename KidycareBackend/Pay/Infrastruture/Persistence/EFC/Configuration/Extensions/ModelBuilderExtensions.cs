@@ -14,7 +14,8 @@ public static class ModelBuilderExtensions
         //Cards context
         builder.Entity<Card>().HasKey(c => c.Id);
         builder.Entity<Card>().Property(c=>c.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<Card>().Property(c=>c.UserId).IsRequired();
+        builder.Entity<Card>().Property(c=>c.ParentId).IsRequired(false);
+        builder.Entity<Card>().Property(c=>c.BabysitterId).IsRequired(false);
         builder.Entity<Card>().OwnsOne(c => c.CardNumber, n =>
         {
             n.WithOwner().HasForeignKey("Id");

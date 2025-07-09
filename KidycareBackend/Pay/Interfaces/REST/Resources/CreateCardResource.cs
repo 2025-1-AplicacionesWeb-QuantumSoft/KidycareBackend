@@ -1,7 +1,8 @@
 ﻿namespace KidycareBackend.Pay.Interfaces.REST.Resources;
 
 public record CreateCardResource(
-        int UserId,
+        int? ParentId,  
+        int? BabysitterId,
         string NumberCard,
         string CardHolder,
         int Code,

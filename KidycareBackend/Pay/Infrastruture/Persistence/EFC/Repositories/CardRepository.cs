@@ -12,12 +12,17 @@ public class CardRepository(AppDbContext context) : BaseRepository<Card>(context
     {
         return await Context.Set<Card>().FirstOrDefaultAsync(c => c.Id == cardId); 
     }
-    
-    public async Task<IEnumerable<Card>> GetCardByUserId(int userId)
+
+    public async Task<IEnumerable<Card?>> GetCardByParentId(int parentId)
     {
-        return await Context.Set<Card>().Where(c => c.UserId == userId).ToListAsync();
+        return await Context.Set<Card>().Where(c => c.ParentId == parentId).ToListAsync();
     }
 
+    public async Task<IEnumerable<Card?>> GetCardByBabysitterId(int babysitterId)
+    {
+        return await Context.Set<Card>().Where(c => c.BabysitterId == babysitterId).ToListAsync();
+    }
+    
     public async Task<Card?> UpdateCard(Card card)
     {
         var trackedEntity = await Context.Set<Card>().FindAsync(card.Id);

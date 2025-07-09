@@ -56,6 +56,38 @@ public class CardsController(
         return Ok(cardsResource);
     }
     
+    [HttpGet("parent/{parentId:int}")]
+    [SwaggerOperation(
+        Summary = "Get all parentId",
+        Description = "Retrieves a list of all cards by ParentId",
+        OperationId = "GetAllCardsByParentId"
+    )]
+    [SwaggerResponse(StatusCodes.Status200OK, "Returns all available cards ",typeof(IEnumerable<CardResource>))]
+    [SwaggerResponse(404, "The parentID were not found")]
+    public async Task<IActionResult> GetAllCardsByParentId(int parentId)
+    {
+        var getAllCardsByParentIdQuery = new GetAllCardByParentIdQuery(parentId);
+        var cards= await cardQueryService.Handle(getAllCardsByParentIdQuery);
+        var cardsResource=cards.Select(CardResourceFromEntityAssembler.ToResourceFromEntity);
+        return Ok(cardsResource);
+    }
+    
+    [HttpGet("babysitter/{babysitterId:int}")]
+    [SwaggerOperation(
+        Summary = "Get all babysitterId",
+        Description = "Retrieves a list of all cards by BabysitterId",
+        OperationId = "GetAllCardsByBabysitterId"
+    )]
+    [SwaggerResponse(StatusCodes.Status200OK, "Returns all available cards ",typeof(IEnumerable<CardResource>))]
+    [SwaggerResponse(404, "The BabysitterId were not found")]
+    public async Task<IActionResult> GetAllCardsByBabysitterId(int babysitterId)
+    {
+        var getAllCardsByBabysitterIdQuery = new GetAllCardByBabysitterIdQuery(babysitterId);
+        var cards= await cardQueryService.Handle(getAllCardsByBabysitterIdQuery);
+        var cardsResource=cards.Select(CardResourceFromEntityAssembler.ToResourceFromEntity);
+        return Ok(cardsResource);
+    }
+    
     [HttpPost]
     [SwaggerOperation(
         Summary = "Create a new card",
@@ -66,7 +98,22 @@ public class CardsController(
     [SwaggerResponse(StatusCodes.Status400BadRequest, "The Card could not be created")]
     public async Task<IActionResult> CreateCard([FromBody]CreateCardResource resource)
     {
-        var createCardCommand = CreateCardCommandFromResourceAssembler.toCommandFromResource(resource);
+        int? parentId = resource.ParentId == 0 ? (int?)null : resource.ParentId;
+        int? babysitterId = resource.BabysitterId == 0 ? (int?)null : resource.BabysitterId;
+        
+        // Validamos que solo uno de los dos (ParentId o BabysitterId) sea no nulo
+        if (parentId.HasValue && babysitterId.HasValue)
+        {
+            return BadRequest("Only one of ParentId or BabysitterId can be provided.");
+        }
+
+        // Validamos que al menos uno de los dos valores esté presente
+        if (!parentId.HasValue && !babysitterId.HasValue)
+        {
+            return BadRequest("Either ParentId or BabysitterId must be provided.");
+        }
+        
+        var createCardCommand = CreateCardCommandFromResourceAssembler.ToCommandFromResource(resource);
         var card = await cardCommandService.Handle(createCardCommand);
         if (card == null) return BadRequest();
         var cardResource = CardResourceFromEntityAssembler.ToResourceFromEntity(card);
@@ -82,13 +129,13 @@ public class CardsController(
         "The card was successfully updated.", typeof(CardResource))]
     [SwaggerResponse(StatusCodes.Status404NotFound,
         "The card with the specified ID was not found.")]
-    public async Task<ActionResult> UpdateCardById( long cardId, [FromBody] UpdateCardResource resource)
+    public async Task<ActionResult> UpdateCardById( long id, [FromBody] UpdateCardResource resource)
     {
-        var getCardByIdQuery = new GetCardByIdQuery(cardId);
+        var getCardByIdQuery = new GetCardByIdQuery(id);
         var result = await cardQueryService.Handle(getCardByIdQuery);
         if (result is null) return NotFound();
-        var updateCardCommand =  UpdateCardByIdCommandFromResourceAssembler.ToCommandFromResource(resource, cardId);
-        var updatedResult = await cardCommandService.Handle(updateCardCommand,cardId);
+        var updateCardCommand =  UpdateCardByIdCommandFromResourceAssembler.ToCommandFromResource(resource, id);
+        var updatedResult = await cardCommandService.Handle(updateCardCommand,id);
         
         if (updatedResult is null) return BadRequest();
         var updateResource = CardResourceFromEntityAssembler.ToResourceFromEntity(updatedResult);
