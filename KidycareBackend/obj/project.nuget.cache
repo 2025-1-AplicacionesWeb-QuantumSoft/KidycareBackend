@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c8nR4s5rZPw=",
+  "dgSpecHash": "5o4DxneqpnI=",
   "success": true,
-  "projectFilePath": "D:\\u\\aplicaciones web\\backend\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
+  "projectFilePath": "C:\\Users\\USUARIO\\Desktop\\BackendApp\\KidycareBackend\\KidycareBackend\\KidycareBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USUARIO\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
