@@ -3,7 +3,7 @@ using KidycareBackend.Reservations.Interfaces.Resources;
 
 namespace KidycareBackend.Reservations.Interfaces.Transform;
 
-public class ReservationResourceFromEntityAssembler
+public static class ReservationResourceFromEntityAssembler
 {
     public static ReservationResource ToResourceFromEntity(Reservation entity) =>
         new ReservationResource(

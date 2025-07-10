@@ -1,4 +1,5 @@
-﻿using KidycareBackend.Profiles.Interfaces.ACL;
+﻿using KidycareBackend.Pay.Interfaces.ACL;
+using KidycareBackend.Profiles.Interfaces.ACL;
 using KidycareBackend.Reservations.Domain.Model.Aggregates;
 using KidycareBackend.Reservations.Domain.Model.Commands;
 using KidycareBackend.Reservations.Domain.Repositories;
@@ -7,7 +8,8 @@ using KidycareBackend.Shared.Domain.Repositories;
 
 namespace KidycareBackend.Reservations.Application.Internal.CommandServices;
 
-public class ReservationCommandService(IReservationRepository reservationRepository, IUnitOfWork unitOfWork, IProfilesContextFacade profilesContextFacade)
+public class ReservationCommandService(IReservationRepository reservationRepository, IUnitOfWork unitOfWork, 
+    IProfilesContextFacade profilesContextFacade, ICardsContextFacade cardsContextFacade, IPaymentContextFacade paymentContextFacade)
     : IReservationCommandService
 {
     public async Task<Reservation?> handle(CreateReservationCommand command)
@@ -27,6 +29,22 @@ public class ReservationCommandService(IReservationRepository reservationReposit
         {
             await reservationRepository.AddAsync(reservation);
             await unitOfWork.CompleteAsync();
+            //create payment
+            try
+            {
+                await paymentContextFacade.CreatePayment(
+                    command.Amount,
+                    command.cardId,
+                    command.CreatedAt,
+                    reservation.Id,
+                    command.ParentId!.Value
+                );
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Payment Error] {ex.Message}");
+                // Tal vez: throw new Exception("Error while creating payment");
+            }
         }
         catch (Exception e)
         {

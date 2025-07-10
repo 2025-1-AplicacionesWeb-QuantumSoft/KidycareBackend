@@ -15,6 +15,8 @@ public record CreateReservationCommand(
     string AdditionalInfo,
     ReservationStatus Status,
     NotificationId NotificationId,
-    DateTime CreatedAt
+    DateTime CreatedAt,
+    decimal Amount,
+    long cardId
     );
     

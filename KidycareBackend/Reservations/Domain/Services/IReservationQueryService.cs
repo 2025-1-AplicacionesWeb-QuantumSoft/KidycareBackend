@@ -1,4 +1,5 @@
-﻿using KidycareBackend.Reservations.Domain.Model.Aggregates;
+﻿using KidycareBackend.Pay.Domain.Model.Aggregates;
+using KidycareBackend.Reservations.Domain.Model.Aggregates;
 using KidycareBackend.Reservations.Domain.Model.Commands;
 using KidycareBackend.Reservations.Domain.Model.Queries;
 using KidycareBackend.Reservations.Domain.Model.ValueObjects;
@@ -12,6 +13,7 @@ public interface IReservationQueryService
     Task<IEnumerable<Reservation>> handle(GetAllReservationByBabysitterIdQuery query);
     
     Task<IEnumerable<Reservation>> handle(GetAllReservationsQuery query);
+    Task<IEnumerable<Card?>> GetCardsByParentIdAsync(int parentId);
 
     Task<Reservation> handle(GetReservationByIdQuery command);
 }

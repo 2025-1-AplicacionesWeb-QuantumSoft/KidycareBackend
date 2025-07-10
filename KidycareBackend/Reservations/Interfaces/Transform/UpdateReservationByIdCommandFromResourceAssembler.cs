@@ -4,7 +4,7 @@ using KidycareBackend.Reservations.Interfaces.Resources;
 
 namespace KidycareBackend.Reservations.Interfaces.Transform;
 
-public class UpdateReservationByIdCommandFromResourceAssembler
+public static class UpdateReservationByIdCommandFromResourceAssembler
 {
     public static UpdateReservationByIdCommand ToCommandFromResource(
         UpdateReservationResource resource, int id)

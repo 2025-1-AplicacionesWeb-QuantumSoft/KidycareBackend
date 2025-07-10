@@ -1,4 +1,6 @@
-﻿using KidycareBackend.Reservations.Domain.Model.Aggregates;
+﻿using KidycareBackend.Pay.Domain.Model.Aggregates;
+using KidycareBackend.Pay.Interfaces.ACL;
+using KidycareBackend.Reservations.Domain.Model.Aggregates;
 using KidycareBackend.Reservations.Domain.Model.Queries;
 using KidycareBackend.Reservations.Domain.Model.ValueObjects;
 using KidycareBackend.Reservations.Domain.Repositories;
@@ -6,12 +8,17 @@ using KidycareBackend.Reservations.Domain.Services;
 
 namespace KidycareBackend.Reservations.Application.Internal.QueryServices;
 
-public class ReservationQueryService(IReservationRepository reservationRepository)
+public class ReservationQueryService(IReservationRepository reservationRepository, ICardsContextFacade cardsContextFacade)
 : IReservationQueryService
 {
     public async Task<IEnumerable<Reservation>> handle(GetAllReservationByParentIdQuery query)
     {
         return await reservationRepository.GetReservationsByParentId(query.ParentId);
+    }
+    
+    public async Task<IEnumerable<Card?>> GetCardsByParentIdAsync(int parentId)
+    {
+        return await cardsContextFacade.GetCardsByParentIdAsync(parentId);
     }
 
     public async Task<IEnumerable<Reservation>> handle(GetAllReservationByBabysitterIdQuery query)

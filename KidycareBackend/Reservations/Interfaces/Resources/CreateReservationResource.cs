@@ -13,5 +13,7 @@ public record CreateReservationResource(
     string additionalInfo,
     string status,
     int notificationId,
-    DateTime createdAt
+    DateTime createdAt,
+    decimal amount,
+    long cardId
 );

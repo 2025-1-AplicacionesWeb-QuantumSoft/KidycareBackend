@@ -135,4 +135,18 @@ public class ReservationController(
         
         return NoContent(); // 204 No Content
     }
+    [HttpGet("cards/parent/{parentId}")]
+    [SwaggerOperation(
+        Summary = "Get all cards by Parent ID",
+        Description = "Retrieves a list of all cards by Parent ID.",
+        OperationId = "GetAllCards")]
+    [SwaggerResponse(StatusCodes.Status200OK, 
+        "Returns all available cards", typeof(IEnumerable<ReservationResource>))]
+    [SwaggerResponse(StatusCodes.Status404NotFound,
+        "No cards were found.")]
+    public async Task<IActionResult> GetCardsByParentId(int parentId)
+    {
+        var cards = await reservationQueryService.GetCardsByParentIdAsync(parentId);
+        return Ok(cards);
+    }
 }

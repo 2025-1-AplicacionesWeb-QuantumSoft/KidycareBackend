@@ -143,6 +143,7 @@ builder.Services.AddControllers(options =>
  builder.Services.AddScoped<IPaymentCommandService, PaymentCommandService>();
  builder.Services.AddScoped<IPaymentQueryService, PaymentQueryService>();
  builder.Services.AddScoped<ICardsContextFacade, CardContextFacade>();
+ builder.Services.AddScoped<IPaymentContextFacade, PaymentContextFacade>();
 // Profile bounded context
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
