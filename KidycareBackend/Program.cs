@@ -126,10 +126,13 @@ builder.Services.AddControllers(options =>
  builder.Services.AddCors(options =>
  {
   options.AddPolicy("AllowFrontend",
-   policy => policy.WithOrigins("http://localhost:5173", "https://frontend-appweb.onrender.com")
+   policy => policy
+    .WithOrigins("http://localhost:5173", "https://frontend-appweb.onrender.com")
     .AllowAnyHeader()
-    .AllowAnyMethod());
+    .AllowAnyMethod()
+    .AllowCredentials());
  });
+
 // Configure Dependency Injection
 
 // User Bounded Context Configuration
@@ -191,19 +194,6 @@ builder.Services.AddScoped(typeof(ICommandPipelineBehavior<>), typeof(LoggingCom
   });
 
 
- /*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-  .AddJwtBearer(options =>
-  {
-   var secretKey = builder.Configuration["TokenSettings:Secret"];
-   options.TokenValidationParameters = new TokenValidationParameters
-   {
-    ValidateIssuer = false,
-    ValidateAudience = false,
-    ValidateLifetime = true,
-    ValidateIssuerSigningKey = true,
-    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey))
-   };
-  });*/
 
 var app = builder.Build();
 
