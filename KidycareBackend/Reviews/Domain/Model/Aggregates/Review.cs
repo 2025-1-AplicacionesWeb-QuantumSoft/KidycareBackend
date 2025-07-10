@@ -4,9 +4,7 @@ namespace KidycareBackend.Reviews.Domain.Model.Aggregates;
 
 public class Review
 {
-    public string reviewApiKey { get;  }
-
-    public string reviewId { get; private set; }
+    public int reviewId { get; private set; }
 
     public int rating { get; private set; }
     
@@ -20,8 +18,7 @@ public class Review
 
     protected Review()
     {
-        reviewApiKey = string.Empty;
-        reviewId = string.Empty;
+        reviewId = 0;
         rating = 0;
         comment = string.Empty;
         parentId = string.Empty;
@@ -31,7 +28,6 @@ public class Review
 
     public Review(CreateReviewCommand command)
     {
-        reviewApiKey = command.reviewApiKey;
         reviewId = command.reviewId;
         rating = command.rating;
         comment = command.comment;

@@ -126,7 +126,7 @@ builder.Services.AddControllers(options =>
  builder.Services.AddCors(options =>
  {
   options.AddPolicy("AllowFrontend",
-   policy => policy.WithOrigins("http://localhost:5174")
+   policy => policy.WithOrigins("http://localhost:5173", "https://frontend-appweb.onrender.com/")
     .AllowAnyHeader()
     .AllowAnyMethod());
  });
@@ -216,6 +216,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 
+
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
@@ -224,7 +225,7 @@ using (var scope = app.Services.CreateScope())
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseCors("AllowFrontend");
-//app.UseAuthentication();
+app.UseAuthentication();
 app.UseRequestAuthorization();
 //app.UseHttpsRedirection();
 app.UseAuthorization();

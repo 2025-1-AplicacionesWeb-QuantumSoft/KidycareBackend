@@ -1,3 +1,3 @@
 ﻿namespace KidycareBackend.Reviews.Domain.Model.Commands;
 
-public record UpdateReviewByIdCommand(string reviewApiKey);
+public record UpdateReviewByIdCommand(int reviewId);

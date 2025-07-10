@@ -41,14 +41,14 @@ public class ReviewController : ControllerBase
             ReviewResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
 
-    [HttpGet("{id:int}")]
+    [HttpGet("{id}")]
     [SwaggerOperation(
         Summary = "Obtiene una review por ID",
         Description = "Recupera una review usando su identificador único",
         OperationId = "GetReviewById")]
     [SwaggerResponse(200, "La review fue encontrada", typeof(ReviewResource))]
     [SwaggerResponse(404, "No se encontró la review")]
-    public async Task<ActionResult> GetReviewById(string id)
+    public async Task<ActionResult> GetReviewById(int id)
     {
         var query = new GetReviewByIdQuery(id);
         var result = await _reviewQueryService.Handle(query);
@@ -58,7 +58,7 @@ public class ReviewController : ControllerBase
         return Ok(resources);
     }
 
-    private async Task<ActionResult> GetAllReviewsByParentId(string parentId)
+    private async Task<ActionResult> GetAllReviewsByParentId(int parentId)
     {
         var query = new GetAllReviewsByParentIdQuery(parentId);
         var result = await _reviewQueryService.Handle(query);
@@ -66,7 +66,7 @@ public class ReviewController : ControllerBase
         return Ok(resources);
     }
 
-    private async Task<ActionResult> GetReviewsByBabysitterId(string babysitterId)
+    private async Task<ActionResult> GetReviewsByBabysitterId(int babysitterId)
     {
         var query = new GetReviewsByBabysitterIdQuery(babysitterId);
         var result = await _reviewQueryService.Handle(query);
@@ -81,14 +81,14 @@ public class ReviewController : ControllerBase
         OperationId = "GetReviewsFromQuery")]
     [SwaggerResponse(200, "Se encontraron reviews", typeof(IEnumerable<ReviewResource>))]
     public async Task<ActionResult> GetReviewsFromQuery(
-        [FromQuery] string? parentId = null,
-        [FromQuery] string? babysitterId = null)
+        [FromQuery] int? parentId = 0,
+        [FromQuery] int? babysitterId = 0)
     {
-        if (!string.IsNullOrEmpty(parentId))
-            return await GetAllReviewsByParentId(parentId);
+        if (parentId.HasValue)
+            return await GetAllReviewsByParentId(parentId.Value);
 
-        if (!string.IsNullOrEmpty(babysitterId))
-            return await GetReviewsByBabysitterId(babysitterId);
+        if (babysitterId.HasValue)
+            return await GetReviewsByBabysitterId(babysitterId.Value);
 
         return BadRequest("Debe proporcionar 'parentId' o 'babysitterId'");
     }

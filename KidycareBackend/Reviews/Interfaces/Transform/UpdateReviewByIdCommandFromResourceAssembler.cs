@@ -9,11 +9,8 @@ public class UpdateReviewByIdCommandFromResourceAssembler
         UpdateReviewResource resource, int Id)
     {
         return new UpdateReviewByIdCommand(
-            resource.rating,
-            resource.comment,
-            resource.date
+            resource.rating
         );
-        
     }
 
 }

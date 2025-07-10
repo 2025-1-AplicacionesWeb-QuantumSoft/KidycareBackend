@@ -7,7 +7,6 @@ public class ReviewResourceFromEntityAssembler
 {
     public static ReviewResource ToResourceFromEntity (Review entity) => new ReviewResource
     (
-        entity.reviewApiKey,
         entity.reviewId,
         entity.rating,
         entity.comment,

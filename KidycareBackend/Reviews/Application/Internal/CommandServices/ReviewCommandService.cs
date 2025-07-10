@@ -33,7 +33,7 @@
 
         public async Task<Review> Handle(UpdateReviewByIdCommand command)
         {
-            var review = await reviewRepository.GetReviewById(command.reviewApiKey);
+            var review = await reviewRepository.GetReviewById(command.reviewId);
             if (review == null)
                 throw new Exception("Review not found");
 
@@ -52,13 +52,13 @@
 
         public async Task<Review> Handle(DeleteReviewByIdCommand command)
         {
-            var review = await reviewRepository.GetReviewById(command.reviewApiKey);
+            var review = await reviewRepository.GetReviewById(command.reviewId);
             if (review == null)
                 throw new Exception("Review not found");
 
             try
             {
-                await reviewRepository.DeleteReview(review.reviewApiKey);
+                await reviewRepository.DeleteReview(review.reviewId);
                 await unitOfWork.CompleteAsync();
             }
             catch (Exception)

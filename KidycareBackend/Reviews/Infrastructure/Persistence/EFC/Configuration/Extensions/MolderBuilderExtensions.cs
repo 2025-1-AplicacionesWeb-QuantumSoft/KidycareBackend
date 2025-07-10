@@ -7,8 +7,8 @@ public static class MolderBuilderExtensions
 {
     public static void ApplyReviewsConfiguration(this ModelBuilder builder)
     {
-        builder.Entity<Review>().HasKey(p => p.reviewApiKey);
-        builder.Entity<Review>().Property(p => p.reviewApiKey).IsRequired().HasMaxLength(100);
+        builder.Entity<Review>().HasKey(p => p.reviewId);
+        builder.Entity<Review>().Property(p => p.reviewId).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<Review>().Property(p => p.reviewId).IsRequired().HasMaxLength(100);
         builder.Entity<Review>().Property(p => p.rating).IsRequired();
         builder.Entity<Review>().Property(p => p.comment).HasMaxLength(500);
