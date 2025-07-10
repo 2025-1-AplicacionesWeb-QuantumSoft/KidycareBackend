@@ -8,5 +8,5 @@ public interface IParentCommandService
 
     Task<Parent?> Handle(CreateParentCommand command);
     
-    Task<Parent?> Handle(UpdateParentCommand command);
+    Task<Parent> Handle(UpdateParentCommand command, int parentId);
 }

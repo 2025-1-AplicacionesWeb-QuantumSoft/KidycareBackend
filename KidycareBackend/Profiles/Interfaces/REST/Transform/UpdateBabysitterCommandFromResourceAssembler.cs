@@ -3,12 +3,12 @@ using KidycareBackend.Profiles.Interfaces.REST.Resources;
 
 namespace KidycareBackend.Profiles.Interfaces.REST.Transform;
 
-public static class CreateBabysitterCommandFromResourceAssembler
+public static class UpdateBabysitterCommandFromResourceAssembler
 {
-    public static CreateBabysitterCommand ToCommandFromResource(CreateBabysitterResource resource) =>
-        new CreateBabysitterCommand(
-            resource.UserId,
-            resource.description, 
+    public static UpdateBabysitterCommand ToCommandFromResource( UpdateBabysitterResource resource,int id)
+    {
+        return new UpdateBabysitterCommand(
+            resource.description,
             resource.name,
             resource.phone,
             resource.languages,
@@ -20,4 +20,5 @@ public static class CreateBabysitterCommandFromResourceAssembler
             resource.dni,
             resource.experienceLevel
         );
+    }
 }

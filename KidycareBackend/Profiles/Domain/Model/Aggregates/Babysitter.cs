@@ -9,28 +9,28 @@ public partial class Babysitter
 
     public UserId UserId { get; private set; }
     
-    public string name { get; private set; }
+    public string name { get; set; }
     
-    public string phone { get; private set; }
+    public string phone { get; set; }
     
-    public string description { get; private set; }
+    public string description { get; set; }
     
-    public string languages { get; private set; }
+    public string languages { get; set; }
     
-    public int rating { get; private set; } 
+    public int rating { get; set; } 
     
-    public string location { get; private set; } 
+    public string location { get; set; } 
     
-    public string accountBank { get; private set; } 
-    public string bankName { get; private set; } 
+    public string accountBank { get; set; } 
+    public string bankName { get; set; } 
     
-    public string typeAccountBank { get; private set; } 
+    public string typeAccountBank { get; set; } 
     
-    public string dni { get; private set; } 
+    public string dni { get; set; } 
 
-    public string ExperienceLevel { get; private set; }
+    public string ExperienceLevel { get; set; }
 
-    public bool IsAvailable { get; private set; }
+    public bool IsAvailable { get; set; }
     
 
     protected Babysitter() { }
@@ -73,5 +73,19 @@ public partial class Babysitter
     public void SetAvailability(bool available)
     {
         IsAvailable = available;
+    }
+
+    public void UpdateBabysitter(UpdateBabysitterCommand command)
+    {
+        description = command.Description;
+        name = command.Name;
+        phone = command.Phone;
+        languages = command.Languages;
+        rating = command.Rating;
+        location = command.Location;
+        accountBank = command.AccountBank;
+        bankName = command.BankName;
+        typeAccountBank = command.TypeAccountBank;
+        dni = command.Dni;
     }
 }

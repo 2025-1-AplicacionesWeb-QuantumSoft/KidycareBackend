@@ -88,4 +88,24 @@ public class BabysitterController(
         var tutorialsResources = babysitters.Select(BabysitterResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(tutorialsResources);
     }
+    
+    [HttpPatch("{id}")]
+    [SwaggerOperation(
+        Summary = "Update Babysitter By Id",
+        Description = "Updates a specific Babysitter using its unique identifier.\".",
+        OperationId = "UpdateBabysitterById")
+    ]
+    [SwaggerResponse(StatusCodes.Status200OK, "Returns all available tutorials", typeof(IEnumerable<BabysitterResource>))]        
+    public async Task<IActionResult> UpdateBabysitterById(int id,[FromBody] UpdateBabysitterResource resource)
+    {
+        var getBabysitterByIdQuery = new GetBabysitterByIdQuery(id);
+        var result = await babysitterQueryService.Handle(getBabysitterByIdQuery);
+        if (result is null) return NotFound();
+        
+        var updateBabysitterCommand= UpdateBabysitterCommandFromResourceAssembler.ToCommandFromResource(resource,id);
+        var updatedResult = await babysitterCommandService.Handle(updateBabysitterCommand,id);
+        if (updatedResult is null) return BadRequest();
+        var updateResource = BabysitterResourceFromEntityAssembler.ToResourceFromEntity(updatedResult);
+        return Ok(updateResource);
+    }
 }

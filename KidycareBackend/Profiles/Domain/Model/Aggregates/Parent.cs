@@ -7,16 +7,16 @@ public partial class Parent
 {
     public int Id { get; private set; }
     public UserId userId { get; private set; }
-    public string address { get; private set; }
+    public string address { get; set; }
     
-    public string name { get; private set; }
+    public string name { get; set; }
     
-    public string phone { get; private set; }
-    public int childrenCount { get; private set; }
+    public string phone { get; set; }
+    public int childrenCount { get; set; }
     
-    public string preferences { get; private set; }
+    public string preferences { get; set; }
     
-    public string city { get; private set; }
+    public string city { get; set; }
 
     protected Parent() { }
 
@@ -40,5 +40,15 @@ public partial class Parent
         childrenCount = command.childrenCount;
         preferences = command.preferences;
         city = command.city;
+    }
+
+    public void UpdateParent(UpdateParentCommand command)
+    {
+        address = command.Address;
+        name = command.Name;
+        phone = command.Phone;
+        childrenCount = command.ChildrenCount;
+        preferences = command.Preferences;
+        city = command.City;
     }
 }

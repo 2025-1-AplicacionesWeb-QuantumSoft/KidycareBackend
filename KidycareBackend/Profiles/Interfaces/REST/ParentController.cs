@@ -74,5 +74,24 @@ public class ParentController(
             ParentResourceFromEntityAssembler.ToResourceFromEntity(parent);
         return Ok(resource);
     }
-
+    
+    [HttpPatch("{id}")]
+    [SwaggerOperation(
+        Summary = "Update parent By Id",
+        Description = "Updates a specific parent using its unique identifier.\".",
+        OperationId = "UpdateParentById")
+    ]
+    [SwaggerResponse(StatusCodes.Status200OK, "Returns all available tutorials", typeof(IEnumerable<ParentResource>))]        
+    public async Task<IActionResult> UpdateParentById([FromBody] UpdateParentResource updateResource,int id)
+    {
+        var getParentByIdQuery = new GetParentByIdQuery(id);
+        var result = await parentQueryService.Handle(getParentByIdQuery);
+        if (result is null) return NotFound();
+        
+        var updateParentCommand= UpdateParentCommandFromResourceAssembler.ToCommandFromResource(updateResource,id);
+        var updatedResult = await parentCommandService.Handle(updateParentCommand,id);
+        if (updatedResult is null) return BadRequest();
+        var resource = ParentResourceFromEntityAssembler.ToResourceFromEntity(updatedResult);
+        return Ok(resource);
+    }
 }

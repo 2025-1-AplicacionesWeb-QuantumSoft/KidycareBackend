@@ -7,26 +7,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KidycareBackend.Profiles.Infrastructure.Persistence.EFC.Repositories;
 
-public class ParentRepository(AppDbContext Context) 
-    : BaseRepository<Parent>(Context), IParentRepository
+public class ParentRepository(AppDbContext context) 
+    : BaseRepository<Parent>(context), IParentRepository
 {
-    public async Task<Parent?> FindByUserIdAsync(int userId)
+    public async Task<Parent?> GetParentById(int parentId)
     {
-        return await Context.Set<Parent>().FirstOrDefaultAsync(p => p.userId == userId);
+        return await Context.Set<Parent>().FirstOrDefaultAsync(p=>p.Id == parentId); 
     }
 
-    public Task<Parent?> Handle(GetParentByIdQuery query)
+    public async Task<Parent?> GetParentByUserId(int userId)
     {
-        throw new NotImplementedException();
+        return await Context.Set<Parent>().Where(p => p.userId==userId).FirstOrDefaultAsync();
     }
 
-    public async Task<Parent?> Handle(GetParentByUserIdQuery query)
+    public async Task<Parent?> UpdateParent(Parent parent)
     {
-        return await FindByUserIdAsync(query.UserId);
-    }
-
-    public Task<bool> ExistsByUserIdAsync(int userId)
-    {
-        throw new NotImplementedException();
+        var trackedEntity = await Context.Set<Parent>().FindAsync(parent.Id);
+        if (trackedEntity == null) return null;
+        
+        Context.Entry(trackedEntity).CurrentValues.SetValues(parent);
+        await Context.SaveChangesAsync();
+        return trackedEntity;
     }
 }

@@ -6,5 +6,5 @@ namespace KidycareBackend.Profiles.Domain.Services;
 public interface IBabysitterCommandService
 {
     Task<Babysitter?> Handle(CreateBabysitterCommand command);
-    Task<Babysitter?> Handle(UpdateBabysitterCommand command);
+    Task<Babysitter> Handle(UpdateBabysitterCommand command, int babysitterId);
 }

@@ -15,7 +15,7 @@ public class BabysitterQueryService(IBabysitterRepository babysitterRepository)
 
     public async Task<Babysitter?> Handle(GetBabysitterByUserIdQuery query)
     {
-        return await babysitterRepository.FindByUserIdAsync(query.UserId);
+        return await babysitterRepository.GetBabysitterByUserIdQuery(query.UserId);
     }
 
     public async Task<IEnumerable<Babysitter>> Handle(GetAllBabysitterQuery query)

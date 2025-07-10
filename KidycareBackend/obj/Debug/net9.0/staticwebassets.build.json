@@ -1,1 +1,12 @@
-{"Version":1,"Hash":"czI6WGn2d8tMYr8344Ewr4Q26jZeDxfxJ9T5KGmh8+A=","Source":"KidycareBackend","BasePath":"_content/KidycareBackend","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "czI6WGn2d8tMYr8344Ewr4Q26jZeDxfxJ9T5KGmh8+A=",
+  "Source": "KidycareBackend",
+  "BasePath": "_content/KidycareBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

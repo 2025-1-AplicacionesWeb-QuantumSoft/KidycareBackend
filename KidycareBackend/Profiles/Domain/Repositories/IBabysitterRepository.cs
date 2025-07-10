@@ -6,8 +6,8 @@ namespace KidycareBackend.Profiles.Domain.Repositories;
 
 public interface IBabysitterRepository: IBaseRepository<Babysitter>
 {
-    Task<Babysitter?> FindByUserIdAsync(int userId);
-    Task<Babysitter?> Handle(GetBabysitterByIdQuery query);
-    Task<Babysitter?> Handle(GetBabysitterByUserIdQuery query);
-    Task<bool> ExistsByUserIdAsync(int userId);
+    Task<Babysitter?> GetBabysitterId(int babysitterId); 
+    Task<Babysitter?> GetBabysitterByUserIdQuery(int userId);
+    Task<Babysitter?> UpdateBabysitter(Babysitter babysitter);
+
 }
